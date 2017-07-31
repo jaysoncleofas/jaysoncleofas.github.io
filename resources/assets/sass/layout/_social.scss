@@ -1,0 +1,60 @@
+.btn-fb {
+  background-color: #3b5998;
+}
+.btn-fb:hover {
+    background-color: #4264aa;
+}
+.btn-tw{
+  background-color: #55acee;
+}
+.btn-tw:hover {
+  background-color: #6cb7f0;
+}
+.btn-gplus{
+  background-color: #dd4b39;
+}
+.btn-gplus:hover{
+  background-color: #e15f4f;
+}
+.btn-li{
+  background-color: #0082ca;
+}
+.btn-li:hover{
+  background-color: #0092e4;
+}
+.btn-ins{
+  background-color: #3f729b;
+}
+.btn-ins:hover{
+  background-color: #467fad;
+}
+.btn-so{
+  background-color: #f69c55;
+}
+.btn-so:hover{
+  background-color: #f7aa6d;
+}
+.btn-git{
+  background-color: #4183c4;
+}
+.btn-git:hover{
+  background-color: #5490ca;
+}
+.btn-floating {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  transition: .3s;
+  vertical-align: middle;
+}

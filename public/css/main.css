@@ -1,0 +1,405 @@
+/*
+   Portfolio
+   Author: Jayson Cleofas
+   Version: 0.0.2
+
+*/
+/* line 1, D:/folder/project/public/sass/layout/_parsley.scss */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #5cb85c;
+  border-bottom: 1px solid #5cb85c;
+}
+
+/* line 9, D:/folder/project/public/sass/layout/_parsley.scss */
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #db534f;
+  border-bottom: 1px solid #db534f;
+}
+
+/* line 16, D:/folder/project/public/sass/layout/_parsley.scss */
+.parsley-errors-list {
+  color: #B94A48;
+  /*margin: 2px 0 3px;
+  padding: 0;*/
+  /*list-style-type: none;*/
+  font-size: 80%;
+  font-weight: normal;
+  /*line-height: 0.9em;
+  opacity: 0;*/
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+/* line 32, D:/folder/project/public/sass/layout/_parsley.scss */
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+/* line 1, D:/folder/project/public/sass/layout/_nav.scss */
+.navbar .navbar-user {
+  background-color: transparent;
+}
+
+/* line 4, D:/folder/project/public/sass/layout/_nav.scss */
+.navbar .navbar-projects {
+  background-color: #1abc9c;
+}
+
+/* line 7, D:/folder/project/public/sass/layout/_nav.scss */
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+/* line 10, D:/folder/project/public/sass/layout/_nav.scss */
+.scrolling-navbar {
+  -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+  -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+  transition: background .5s ease-in-out, padding .5s ease-in-out;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* line 17, D:/folder/project/public/sass/layout/_nav.scss */
+.scrolling-navbar .navbar-nav > li {
+  transition-duration: 1s;
+}
+
+/* line 20, D:/folder/project/public/sass/layout/_nav.scss */
+.top-nav-collapse {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 24, D:/folder/project/public/sass/layout/_nav.scss */
+.double-nav, .scrolling-navbar {
+  z-index: 100;
+}
+
+/* line 27, D:/folder/project/public/sass/layout/_nav.scss */
+.double-nav {
+  color: #fff;
+}
+
+/* line 30, D:/folder/project/public/sass/layout/_nav.scss */
+.top-nav-collapse {
+  background-color: #1abc9c;
+}
+
+@media only screen and (max-width: 768px) {
+  /* line 35, D:/folder/project/public/sass/layout/_nav.scss */
+  .navbar {
+    background-color: #1abc9c;
+  }
+}
+
+/* line 4, D:/folder/project/public/sass/layout/_base.scss */
+body {
+  color: #5c5c5c;
+  font-family: Montserrat, sans-serif;
+}
+
+/* line 8, D:/folder/project/public/sass/layout/_base.scss */
+.vew, .hero {
+  font-family: Roboto;
+  height: 670px;
+  background: url("../img/computer.jpeg") no-repeat center fixed;
+}
+
+/* line 13, D:/folder/project/public/sass/layout/_base.scss */
+.vew, .about-title {
+  font-family: Roboto;
+  height: 300px;
+  background: url("../img/Icon_back.jpg") no-repeat center fixed;
+}
+
+/* line 18, D:/folder/project/public/sass/layout/_base.scss */
+.vew, .skills-title {
+  font-family: Roboto;
+  height: 300px;
+  background: url("../img/Icon_back.jpg") no-repeat center fixed;
+}
+
+/* line 23, D:/folder/project/public/sass/layout/_base.scss */
+.vew, .contact-title {
+  font-family: Roboto;
+  height: 300px;
+  background: url("../img/Icon_back.jpg") no-repeat center fixed;
+}
+
+/* line 28, D:/folder/project/public/sass/layout/_base.scss */
+.view {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* line 34, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy {
+  display: block;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-border-radius: 2px 0 0 2px;
+  -moz-border-radius: 2px 0 0 2px;
+  -ms-border-radius: 2px 0 0 2px;
+  -o-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+/* line 50, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy li {
+  display: block;
+  padding: 0 1px;
+}
+
+/* line 54, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy li:first-child {
+  padding-top: 10px;
+}
+
+/* line 57, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy li:last-child {
+  padding-bottom: 10px;
+}
+
+/* line 60, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy li a span {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.54);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* line 67, D:/folder/project/public/sass/layout/_base.scss */
+.min-chart, .percent {
+  display: inline-block;
+}
+
+/* line 70, D:/folder/project/public/sass/layout/_base.scss */
+.dotted-scrollspy li a.active span {
+  background: #fff;
+}
+
+/* line 73, D:/folder/project/public/sass/layout/_base.scss */
+h2.section-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* line 79, D:/folder/project/public/sass/layout/_base.scss */
+h5.h5-responsive {
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* line 84, D:/folder/project/public/sass/layout/_base.scss */
+.list-group-item:first-child {
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* line 91, D:/folder/project/public/sass/layout/_base.scss */
+.list-group-item:last-child {
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* line 95, D:/folder/project/public/sass/layout/_base.scss */
+.list-group-item {
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+/* line 99, D:/folder/project/public/sass/layout/_base.scss */
+h4.lead {
+  font-weight: 700;
+}
+
+/* line 102, D:/folder/project/public/sass/layout/_base.scss */
+h2.intro-heading {
+  font-size: 4.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: Roboto;
+}
+
+/* line 108, D:/folder/project/public/sass/layout/_base.scss */
+h3.intro-subtext, nav.navbar {
+  font-family: Roboto;
+}
+
+/* line 111, D:/folder/project/public/sass/layout/_base.scss */
+.card .card-up {
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: -20px;
+}
+
+/* line 116, D:/folder/project/public/sass/layout/_base.scss */
+.card .card-up .card-data {
+  float: right;
+  margin-top: 2rem;
+  text-align: right;
+}
+
+/* line 121, D:/folder/project/public/sass/layout/_base.scss */
+.card .card-up .card-data p {
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* line 128, D:/folder/project/public/sass/layout/_base.scss */
+.card .card-up .fa {
+  color: #fff;
+  padding: 1.7rem;
+  font-size: 2rem;
+  border-radius: 3px;
+  margin-right: 1rem;
+}
+
+/* line 135, D:/folder/project/public/sass/layout/_base.scss */
+.card-block > hr {
+  margin-top: -1rem;
+}
+
+/* line 138, D:/folder/project/public/sass/layout/_base.scss */
+i.skills-cat {
+  font-size: 10px;
+}
+
+/* line 141, D:/folder/project/public/sass/layout/_base.scss */
+.navbar .navbar-projects {
+  background-color: #1abc9c;
+}
+
+/* line 1, D:/folder/project/public/sass/layout/_social.scss */
+.btn-fb {
+  background-color: #3b5998;
+}
+
+/* line 4, D:/folder/project/public/sass/layout/_social.scss */
+.btn-fb:hover {
+  background-color: #4264aa;
+}
+
+/* line 7, D:/folder/project/public/sass/layout/_social.scss */
+.btn-tw {
+  background-color: #55acee;
+}
+
+/* line 10, D:/folder/project/public/sass/layout/_social.scss */
+.btn-tw:hover {
+  background-color: #6cb7f0;
+}
+
+/* line 13, D:/folder/project/public/sass/layout/_social.scss */
+.btn-gplus {
+  background-color: #dd4b39;
+}
+
+/* line 16, D:/folder/project/public/sass/layout/_social.scss */
+.btn-gplus:hover {
+  background-color: #e15f4f;
+}
+
+/* line 19, D:/folder/project/public/sass/layout/_social.scss */
+.btn-li {
+  background-color: #0082ca;
+}
+
+/* line 22, D:/folder/project/public/sass/layout/_social.scss */
+.btn-li:hover {
+  background-color: #0092e4;
+}
+
+/* line 25, D:/folder/project/public/sass/layout/_social.scss */
+.btn-ins {
+  background-color: #3f729b;
+}
+
+/* line 28, D:/folder/project/public/sass/layout/_social.scss */
+.btn-ins:hover {
+  background-color: #467fad;
+}
+
+/* line 31, D:/folder/project/public/sass/layout/_social.scss */
+.btn-so {
+  background-color: #f69c55;
+}
+
+/* line 34, D:/folder/project/public/sass/layout/_social.scss */
+.btn-so:hover {
+  background-color: #f7aa6d;
+}
+
+/* line 37, D:/folder/project/public/sass/layout/_social.scss */
+.btn-git {
+  background-color: #4183c4;
+}
+
+/* line 40, D:/folder/project/public/sass/layout/_social.scss */
+.btn-git:hover {
+  background-color: #5490ca;
+}
+
+/* line 43, D:/folder/project/public/sass/layout/_social.scss */
+.btn-floating {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  transition: .3s;
+  vertical-align: middle;
+}
+
+/* line 1, D:/folder/project/public/sass/layout/_footer.scss */
+footer.page-footer {
+  background-color: #ed445a;
+  color: white;
+}
+
+/* line 5, D:/folder/project/public/sass/layout/_footer.scss */
+footer.page-footer .footer-nav {
+  color: #fff;
+}
+
+/* line 9, D:/folder/project/public/sass/layout/_footer.scss */
+footer.page-footer div.footer-copyright {
+  background-color: white;
+  color: #5c5c5c;
+}
+
+/* line 15, D:/folder/project/public/sass/layout/_footer.scss */
+h5.h5-responsive {
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=../css/main.map */
