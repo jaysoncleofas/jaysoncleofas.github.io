@@ -13,21 +13,9 @@ class Skill extends Model
       return $this->belongsto(User::class);
     }
 
-    public function scopeFilter($query, $filters)
+    public function projects()
     {
-      if ($category = $filters['category'])
-      {
-          $query->where('category', $category);
-      }
-    }
-    
-    public static function archives()
-    {
-      return static::selectRaw('(category) category, count(*) total')
-            ->groupBy('category')
-            // ->orderByRaw('category', 'desc')
-            ->get()
-            ->toArray();
-    }
+      return $this->belongsToMany('App\Project');
+   }
 
 }

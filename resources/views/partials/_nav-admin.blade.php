@@ -10,7 +10,7 @@
         <li class="nav-item dropdown btn-group">
 
           <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ Auth::user()->name }}<span class="caret"></span>
+            {{ ucwords(Auth::user()->name) }}<span class="caret"></span>
           </a>
 
           <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">

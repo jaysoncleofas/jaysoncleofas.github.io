@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Skill;
 use App\User;
 use Session;
+use Image;
 
 class SkillController extends Controller
 {
@@ -24,29 +25,10 @@ class SkillController extends Controller
   public function index()
   {
 
-    $skills = Skill::latest()
-        ->filter(request(['category']))
-        ->get();
+       $skill = Skill::all();
 
-
-    // $skills = Skill::latest();
-    // if ($category = request('category'))
-    // {
-    //   $skills->where('category', $category);
-    // }
-    // $skills = $skills->get();
-
-    // $archives = Skill::archives(); //eto yung sa baba shortcut lang pre tapos asa skill model yung code sa baba nilipat lang
-
-    // $archives = Skill::selectRaw('(category) category, count(*) total')
-    //       ->groupBy('category')
-    //       // ->orderByRaw('category', 'desc')
-    //       ->get()
-    //       ->toArray();
-
-    $all = Skill::all();
-
-    return view('admin.skills-index', compact('skills', 'all'));
+       $no = 1;
+       return view('admin.skills-index', compact('skill'))->withNumber($no);
   }
 
   /**
@@ -70,15 +52,31 @@ class SkillController extends Controller
       $this->validate(request(), [
 
         'skill' => 'required|unique:skills',
-        'category' => 'required'
+
 
       ]);
 
-        auth()->user()->addSkill(
+      $skill = new Skill;
+      $skill->user_id = auth()->id();
+      $skill->skill = $request->skill;
 
-        new Skill(request(['skill', 'category']))
+      if ($request->hasFile('image')) {
+         $image = $request->file('image');
+         $filename = time() . '.' . $image->getClientOriginalExtension();
+         $location = public_path('images/' . $filename);
+         Image::make($image)->resize(800, 400)->save($location);
 
-      );
+         $skill->image = $filename;
+      }
+
+      $skill->save();
+      //   auth()->user()->addSkill(
+      //
+      //   new Skill(request(['skill']))
+      //
+      // );
+
+
       // Skill::create([
       //   'user_id' => auth()->id(),
       //   'skill' => request('skill'),
@@ -87,7 +85,7 @@ class SkillController extends Controller
       // ]);
 
       Session::flash('success', 'Your skill was successfully added!');
-      return redirect('/skills');
+      return back();
   }
 
   /**
@@ -132,6 +130,12 @@ class SkillController extends Controller
    */
   public function destroy($id)
   {
-      //
+      $skill = Skill::find($id);
+      $skill->projects()->detach();
+      $skill->delete();
+
+      session()->flash('message', 'This skill was successfully deleted!');
+
+      return redirect()->route('skills.index');
   }
 }

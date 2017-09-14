@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UpdateAccount;
+use Auth;
+use Purifier;
 
 class AdminController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.settings-index');
+        $user = Auth::user();
+        return view('admin.settings-index', compact('user'));
     }
 
     /**
@@ -55,9 +68,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('admin.settings-edit');
+        $user = User::find(Auth::user()->id);
+        return view('admin.settings-edit', compact('user'));
     }
 
     /**
@@ -69,18 +83,39 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $user = User::find(Auth::user()->id);
 
-        $user = User::find($id);
+      $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+
+        ]);
+
+
 
         $user->email = $request->input('email');
         $user->name = $request->input('name');
-        $user->profession = $request->input('profession');
-        $user->address = $request->input('address');
-        $user->phone = $request->input('phone');
+        $user->about = Purifier::clean($request->about);
+
+        if ($request->input('password') != '') {
+
+          if ($request->input('password') == $user->password) {
+            $this->validate($request, [
+                'new_password' => 'min:6|confirmed'
+              ]);
+
+              $user->password = bcrypt($request->input('new_password'));
+          } else {
+            session()->flash('error', 'Invalid Current Password');
+          }
+
+        }
 
         $user->save();
 
-        return redirect()->route('settings.edit');
+        session()->flash('success', 'You have successfully updated your profile!');
+        return redirect()->route('settings.index');
+
     }
 
     /**

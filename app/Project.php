@@ -13,4 +13,9 @@ class Project extends Model
           return $this->belongsto(User::class);
       }
 
+      public function skills()
+      {
+         return $this->belongsToMany('App\Skill');
+      }
+
 }

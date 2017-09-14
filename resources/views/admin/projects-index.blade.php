@@ -63,8 +63,8 @@
                   <tr class="primary-color white-text">
                     <th>#</th>
                     <th>Title</th>
+                    <th>Image</th>
                     <th>Body</th>
-                    <th>By</th>
                     <th>Date</th>
                     <th></th>
                     <th></th>
@@ -74,15 +74,14 @@
                   @foreach ($projects as $project)
                   <tr>
                       <td>{{ $number++ }}</td>
-                      <td>{{ substr($project->title, 0, 20) }} {{ strlen($project->title) > 20 ? "..." : "" }}</td>
-                      <td>{{ substr($project->body, 0, 50) }}{{ strlen($project->body) > 50 ? "..." : "" }}</td>
-                      <td>{{ $project->user->name }}</td>
-                      <td>{{ $project->created_at->toFormattedDateString()}}</td>
                       <td>
-                          <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-sm btn-primary teal-text" data-toggle="tooltip" data-placement="top" title="Edit">
-                              <i class="fa fa-pencil"></i>
-                          </a>
+                        <a href="{{ route('projects.edit', $project->id) }}" class="teal-text">
+                           {{ substr($project->title, 0, 20) }} {{ strlen($project->title) > 20 ? "..." : "" }}
+                        </a>
                       </td>
+                      <td><img src="{{ asset('images/' . $project->image) }}" alt="" class="img-thumbnail" style="width:100px;" ></td>
+                      <td>{{ substr(strip_tags($project->body), 0, 50) }}{{ strlen($project->body) > 50 ? "..." : "" }}</td>
+                      <td>{{ $project->created_at->toFormattedDateString()}}</td>
                       <td>
                           <form class="" action="{{ route('projects.destroy', $project->id) }}" method="post">
                               {{ csrf_field() }}{{ method_field('DELETE') }}
@@ -99,11 +98,11 @@
 
           </div>
         </div>
-              <div class="card">
+              {{-- <div class="card">
                  <div class="card-block">
                     {!! $projects->links() !!}
                  </div>
-              </div>
+              </div> --}}
       </div>
     </div>
 </div>

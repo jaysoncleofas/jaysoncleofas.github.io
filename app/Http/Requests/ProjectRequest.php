@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class ProjectRequest extends FormRequest
 {
     /**
@@ -25,7 +26,8 @@ class ProjectRequest extends FormRequest
     {
         return [
           'title' => 'required|unique:projects',
-          'body' => 'required'
+          'body' => 'required',
+          'skills' => 'nullable'
         ];
     }
 }

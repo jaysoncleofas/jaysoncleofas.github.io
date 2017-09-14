@@ -9,6 +9,9 @@
 <br>
 <div class="container mt-5">
     <div class="row">
+      <div class="col-sm-12">
+        <h4 class="h4-responsive mb-2">Your Messages</h4>
+      </div>
       <div class="col-lg-3">
 
         <div class="card-body">
@@ -17,22 +20,15 @@
           </button>
           <div class="mt-2">
 
-            <small>Skills categories:</small>
+            <small></small>
             <div class="list-group z-depth-0 pb-3">
-              @foreach ($archives as $category)
-  							<a href="/skills/?category={{ $category['category'] }}" class="list-group-item justify-content-between">
 
-                  <i class="fa fa-circle skills-cat green-text"></i>
-                  {{ $category['category'] }}
-                  <span class="badge badge-primary float-right">{{ $category['total'] }}</span>
 
-                </a>
-              @endforeach
               <a href="/skills" class="list-group-item justify-content-between">
 
                 <i class="fa fa-circle skills-cat green-text"></i>
-                All
-                <span class="badge badge-primary float-right">{{ $all->count() }}</span>
+                Total
+                <span class="badge badge-primary float-right">{{ $skill->count() }}</span>
 
               </a>
               @if (Session::has('success'))
@@ -67,7 +63,7 @@
 
                     <!--Body-->
                     <div class="modal-body">
-                      <form method="post" action="{{ route('skills.store') }}" data-parsley-validate>
+                      <form method="post" action="{{ route('skills.store') }}" enctype="multipart/form-data" data-parsley-validate>
                         {{ csrf_field() }}
 
                         <div class="md-form {{ $errors->has('skill') ? 'has-danger' : '' }}">
@@ -80,20 +76,24 @@
                           @endif
                         </div>
 
-                        <div class="md-form {{ $errors->has('category') ? 'has-danger' : '' }}">
-                          <input type="text" class="form-control" name="category" value="{{ old('category') }}" required="">
-                          <label for="">Category</label>
-                          @if ($errors->has('category'))
-                            <span class="text-danger">
-                              <strong>{{ $errors->first('category') }}</strong>
-                            </span>
-                          @endif
+                        <div class="row">
+                          <div class="col-sm-2 mt-1">
+                            <p>Image:</p>
+                          </div>
+                          <div class="col-sm-10">
+                            <div class="md-form">
+                              <input type="file" name="image" value="" class="form-control float-right">
+                            </div>
+                          </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" name="button">Add</button>
 
-                      </form>
                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" name="button" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" name="button">Add</button>
+                    </div>
+                    </form>
                 </div>
                 <!--/.Content-->
             </div>
@@ -101,7 +101,12 @@
       </div>
 
       <div class="col-lg-9">
-        <div class="card">
+         @if ($flash = session('message'))
+            <div id="flash-messages" class="alert alert-danger">
+               {{ $flash }}
+            </div>
+         @endif
+        <div class="card mb-5">
           <div class="card-block">
             <div class="table-responsive">
               <table class="table table-hover">
@@ -109,25 +114,51 @@
                   <tr>
                     <th>#</th>
                     <th>Skills</th>
-                    <th>Category</th>
+                    <th>Image</th>
                     <th>Date</th>
-                    <th>Actions</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($skills as $skill)
+                  @foreach ($skill as $skills)
                   <tr>
-                      <td scope="row">{{ $skill->id }}</td>
-                      <td>{{ $skill->skill }}</td>
-                      <td>{{ $skill->category }}</td>
-                      <td>{{ $skill->created_at->toFormattedDateString()}}</td>
+                      <td scope="row">{{ $number++ }}</td>
+                      <td><a href="#" class="teal-text">{{ $skills->skill }}</a></td>
+                      <td><img src="{{ asset('images/' . $skills->image) }}" class="img-thumbnail" alt="" style="width:100px;"></td>
+
+                      <td>{{ $skills->created_at->toFormattedDateString()}}</td>
                       <td>
-                        <a href="#" class="teal-text mr-2">
-                            <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i>
-                        </a>
-                        <a href="#" class="red-text">
-                            <i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-                        </a>
+                        <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">
+                           {{ csrf_field() }}{{ method_field('DELETE') }}
+                           <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete?')" data-toggle="tooltip" data-placement="top" title="Delete">
+                              <i class="fa fa-times"></i>
+                           </button>
+                        </form>
+                        {{-- MODAL ALERT --}}
+                        <div class="modal fade" id="delete-alert" tabindex="-1" role="dialog" aria-labelledby="myModalAlert" aria-hidden="true">
+                           <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                 {{-- <div class="modal-header">
+                                    <p class="heading lead">Delete a skill</p>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+                                       <span aria-hidden="true" class="white-text">&times;</span>
+                                    </button>
+                                 </div> --}}
+                                 <div class="modal-body">
+                                    <div class="text-center">
+                                       <p>Are you sure you want to delete this skill?</p>
+                                    </div>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <a class="btn btn-outline-danger waves-effect" data-dismiss="modal">Cancel</a>
+                                    <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">
+                                       {{ csrf_field() }}{{ method_field('DELETE') }}
+                                       <button class="btn btn-danger" type="submit" name="button">Delete</button>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                       </td>
                   </tr>
                   @endforeach

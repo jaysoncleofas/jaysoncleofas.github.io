@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('stylesheets')
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" /> -->
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection
 
 @section('content')
@@ -55,6 +56,15 @@
     });
 
     $('form').parsley();
+
+    $(function() {
+      $('#form').submit(function(event) {
+        var verified = grecaptcha.getResponse();
+        if (verified.length === 0) {
+          event.preventDefault();
+        }
+      });
+    });
 
   </script>
 @endsection

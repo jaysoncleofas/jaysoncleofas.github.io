@@ -7,24 +7,22 @@ use App\Project;
 use App\Skill;
 use App\Message;
 use Session;
-use App\Tag;
+use App\User;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
     {
-        $dev = Skill::where('category', 'Development')->get();
-        $des = Skill::where('category', 'Design')->get();
-        $tool = Skill::where('category', 'Tools')->get();
-        $tags = Tag::find([1, 2, 3]);
         $skills = Skill::all();
+        $users = User::where('id', 1)->get();
         $projects = Project::latest()->get();
-        return view('index', compact('projects', 'skills', 'tags', 'dev', 'des', 'tool'));
+        return view('index', compact('projects', 'skills', 'users'));
     }
 
     /**
@@ -50,17 +48,49 @@ class UserController extends Controller
           'firstname' => 'required',
           'lastname' => 'required',
           'email' => 'required',
-          'phone_number' => 'required',
           'message' => 'required'
 
         ]);
 
-        $message = new Message;
+        $token = $request->input('g-recaptcha-response');
 
-        Message::create(request(['firstname', 'lastname', 'email', 'phone_number', 'message']));
 
-        Session::flash('success', 'Your message was successfully send!');
-        return redirect('/#your-message');
+        if ($token) {
+
+          $client = new Client();
+          $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => array(
+              'secret'   => '6Lf2Ni8UAAAAACvoF4YUM8njINH3JVoGJbE0cOqB',
+              'response' => $token
+            )
+          ]);
+          $results = json_decode($response->getBody()->getContents());
+
+          if ($results->success) {
+            // dd($results);
+            // dd($results);
+
+            $message = new Message;
+
+            Message::create(request(['firstname', 'lastname', 'email', 'message']));
+
+            Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
+              return redirect('/#your-message');
+          } else {
+            // $results->error_code
+            Session::flash('error', 'You are probably a robot!');
+            return redirect('/#your-message');
+          }
+
+          // Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
+          // return redirect('/#your-message');
+
+        // } else {
+        //   Session::flash('failed', 'Your message has been not submitted.');
+        //   return redirect('/#your-message');
+        }
+
+
     }
 
     /**
@@ -69,10 +99,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getSingle($slug)
+    public function show($title)
     {
       //fetch from the database based on title
-      $project = Project::where('slug', '=', $slug)->first();
+      $project = Project::where('title', '=', $title)->first();
+      $skills = Skill::all();
 
       //return the view and pass in the post obh=ject
       return view('admin.projects-show', compact('project'));

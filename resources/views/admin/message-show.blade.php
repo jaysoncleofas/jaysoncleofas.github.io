@@ -21,18 +21,18 @@
       <div class="col-lg-8">
         <div class="row">
           <div class="col-sm-6">
-            <p>Email Address: <strong>{{ $message->email}}</strong></p>
-            <p>Phone: <strong>{{ $message->phone_number }}</strong></p>
+            <p><strong>{{ $message->email}}</strong></p>
+            <p><strong>{{ $message->phone_number }}</strong></p>
           </div>
           <div class="col-sm-6">
-            <p class="float-md-right">{{ $message->created_at->toDayDateTimeString() }} {{ $message->created_at->diffforHumans() }}</p>
+            <p class="float-md-right">{{ $message->created_at->toDayDateTimeString() }}</p>
             <p class="float-md-right"></p>
           </div>
         </div>
         <div class="card mb-2">
           <div class="card-block">
             <strong>Message:</strong>
-            <p class="mt-1">"{{ $message->message }}"</p>
+            <p class="mt-1 text-justify">"{{ $message->message }}"</p>
           </div>
         </div>
         <a href="{{ URL::previous() }}" class="btn btn-unique">Back</a>

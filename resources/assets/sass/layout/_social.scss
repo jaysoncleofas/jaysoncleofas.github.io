@@ -1,5 +1,8 @@
-.btn-fb {
+.btn-fb{
   background-color: #3b5998;
+}
+.fb-ic {
+  color: #3b5998;
 }
 .btn-fb:hover {
     background-color: #4264aa;
@@ -13,11 +16,17 @@
 .btn-gplus{
   background-color: #dd4b39;
 }
+.gplus-ic {
+  color: #dd4b39;
+}
 .btn-gplus:hover{
   background-color: #e15f4f;
 }
 .btn-li{
   background-color: #0082ca;
+}
+.li-ic {
+  color: #0082ca;
 }
 .btn-li:hover{
   background-color: #0092e4;
@@ -37,6 +46,9 @@
 .btn-git{
   background-color: #4183c4;
 }
+.git-ic {
+  color: #4183c4;
+}
 .btn-git:hover{
   background-color: #5490ca;
 }
@@ -46,9 +58,9 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   padding: 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

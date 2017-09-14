@@ -25,8 +25,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
-        return view('admin.message-index', compact('messages'));
+        $messages = Message::latest()->paginate(5);
+        $no = 1;
+        return view('admin.message-index', compact('messages'))->withNumber($no);
     }
 
     /**

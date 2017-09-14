@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Skill;
 use App\Project;
 use App\Message;
+use Yajra\DataTables\Facades\Datatables;
 
 
 class HomeController extends Controller
@@ -30,8 +31,18 @@ class HomeController extends Controller
 
         $projects = Project::all();
         $skill = Skill::all();
-        $messages = Message::latest()->get();
+        $messages = Message::latest()->paginate(3);
+        // return Datatables::eloquent(Message::query())->make(true);
         return view('home', compact('messages', 'projects', 'skill'));
     }
+
+    // public function get_datatables()
+    // {
+    //   $messages = Message::selectRaw('name firstname,')
+    //   ->groupBy('fullname', 'message', 'created_at')
+    //   ->get()
+    //   ->toArray();
+    //   return Datatables::of($messages)->make(true);
+    // }
 
 }

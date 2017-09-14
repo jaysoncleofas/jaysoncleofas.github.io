@@ -21,7 +21,13 @@
           </div>
         @endif
 
-        <form action="{{ route('message.store') }}" method="post" data-parsley-validate>
+        @if (Session::has('error'))
+          <div class="alert alert-danger">
+            {{ Session::get('error') }}
+          </div>
+        @endif
+
+        <form action="{{ route('message.store') }}" method="post" data-parsley-validate id="form">
           {{ csrf_field() }}
           <div class="row">
             <div class="col-lg-6 wow fadeInUp">
@@ -45,13 +51,12 @@
           </div>
 
           <div class="md-form wow fadeInUp">
-            <input type="text" name="phone_number" value="" class="form-control" required="" data-parsley-type="number" maxlength="20">
-            <label for="">Phone Number</label>
+            <textarea type="text" name="message" class="md-textarea" required=""></textarea>
+            <label for="">Your Message</label>
           </div>
 
           <div class="md-form wow fadeInUp">
-            <textarea type="text" name="message" class="md-textarea" required=""></textarea>
-            <label for="">Your Message</label>
+            <div class="g-recaptcha" data-sitekey="6Lf2Ni8UAAAAAJX8OVUkOzn73GhuMg_x0okbTbhw"></div>
           </div>
 
           <div class="md-form wow fadeInUp">

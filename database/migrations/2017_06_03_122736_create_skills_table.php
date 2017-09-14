@@ -17,7 +17,7 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('skill')->unique();
-            $table->string('category');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

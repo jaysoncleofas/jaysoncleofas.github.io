@@ -2,6 +2,11 @@
 
 @section('title', 'Home')
 
+@section('stylesheets')
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.css"/> -->
+@endsection
+
+
 @section('content')
 
   @include('partials._nav-admin')
@@ -15,7 +20,7 @@
               <i class="fa fa-comments indigo"></i>
               <div class="card-data">
                 <p>Message</p>
-                  <h3>{{ $messages->count() }}</h3>
+                  <h3>{{ $messages->total() }}</h3>
               </div>
             </div>
             <div class="card-block">
@@ -36,7 +41,7 @@
             </div>
             <div class="card-block">
               <hr>
-              <a href="{{ route('skills') }}" class="btn btn-link btn-block">Update</a>
+              <a href="{{ route('skills.index') }}" class="btn btn-link btn-block">Update</a>
             </div>
           </div>
         </div>
@@ -55,30 +60,83 @@
               <a href="{{ route('projects.index') }}" class="btn btn-link btn-block">Update</a>
             </div>
           </div>
-        </div>
+       </div>
     </div>
 
     <div class="row">
       <div class="col-lg-6">
-        <div class="card mb-5">
+        <div class="list-group mb-5">
+          <a href="#" class="list-group-item active">Recent messages</a>
+          @foreach ($messages as $message)
+          <a href="{{ route('messages.show', $message->id) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="">
+                <!-- <i class="fa fa-user fa-3x mr-3 float-left"></i> -->
+                <strong>{{ ucfirst($message->firstname. ' ' .$message->lastname) }}</strong>
+              </h5>
+              <small class="text-muted">{{ $message->created_at->diffforHumans() }}</small>
+            </div>
+            <p class="teal-text">
+              <!-- <strong>{{ ucfirst($message->firstname) }}:</strong> -->
+               "{{ substr($message->message, 0, 64) }}{{ strlen($message->message) > 25 ? "..." : "" }}"
+             </p>
+            <!-- <small class="text-muted">{{ $message->email }}</small> -->
+          </a>
+          @endforeach
+          <div class="mt-1 mx-3">
+            <div class="float-left">
+              <p class="">Total: {{ $messages->total() }}</p>
+            </div>
+            <div class="float-right">
+              {{ $messages->links('vendor.pagination.bootstrap-4') }}
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card mb-5">
           <div class="card-header white-text bg-primary">
             Recent messages
           </div>
           <div class="card-block">
-            <table class="table table-hover">
+            <table class="table table-hover" id="messages-table">
               <tbody>
                 @foreach ($messages as $message)
                   <tr>
-                    <td>{{ $message->firstname . ' ' . $message->lastname }}</td>
+                    <td><i class="fa fa-user blue-text"></i> {{ $message->firstname . ' ' . $message->lastname }}</td>
                     <td><a href="{{ route('messages.show', $message->id) }}">{{ substr($message->message, 0, 25) }}{{ strlen($message->message) > 25 ? "..." : "" }}</a></td>
                     <td><i class="fa fa-clock-o"></i> {{ $message->created_at->diffforHumans() }}</td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
+            <hr>
+            <div class="float-right">
+              {{ $messages->links('vendor.pagination.bootstrap-4') }}
+            </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.15/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+        $('#messages-table').DataTable({
+            processing: false,
+            serverSide: true,
+            ajax: 'http://localhost:8000/home/datatables',
+            columns: [
+
+            {data: 'firstname', name: 'firstname'},
+            // {data: 'message', name: 'message'},
+            // {data: 'updated_at', name: 'updated_at'}
+        ]
+        });
+    });
+  </script> -->
 @endsection

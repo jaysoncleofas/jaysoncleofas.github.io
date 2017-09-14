@@ -125,12 +125,26 @@ h3.intro-subtext,nav.navbar {
   }
 
 }
+.card .card-up .data {
+  float:left;
+  margin-top: 2rem;
+  text-align: left;
+
+  p {
+    color: #999;
+    float:left;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+}
 .card .card-up .fa {
   color: #fff;
   padding: 1.7rem;
   font-size: 2rem;
   border-radius: 3px;
   margin-right: 1rem;
+  float: left;
 }
 .card-block > hr {
   margin-top: -1rem;
@@ -152,4 +166,36 @@ i.skills-cat{
 @keyframes flash-message {
     0%   {opacity: 1;}
     100% {opacity: 0; display:none;}
+}
+.card.card-cascade.narrower .view {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: -20px;
+}
+.card.card-cascade.narrower {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: -20px;
+}
+.card.card-cascade .view.gradient-card-header {
+    padding: 1.6rem 1rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card.card-cascade .view {
+    border-radius: 4px;
+}
+.card.card-cascade.narrower {
+    margin-top: 20px;
+}
+.card.card-cascade {
+    width: 100%;
+}
+.rounded-circle {
+    max-width: 170px;
+    height: auto;
+}
+img.rounded-circle {
+    border-radius: 50%;
 }

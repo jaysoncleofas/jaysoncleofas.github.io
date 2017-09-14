@@ -8,20 +8,27 @@
 
   <div class="container">
     <section id="projects" class="pt-5 pb-3">
-      <h2 class="h2-responsive section-heading text-center mb-2 wow bounceInDown">{{ $project->title }}</h2>
 
       <!-- First row -->
-        <div class="row wow fadeIn" data-wow-delay="1s">
+        <div class="row wow fadeIn mt-3" data-wow-delay="1s">
 
-					<div class="col-lg-6 mb-2 mx-auto">
-            <img src="../img/dashboard.png" class="img-fluid z-depth-2" style="height:300px;">
-            <p class="mt-2">{{ $project->created_at->toDayDateTimeString() }}</p>
-            <p>{{ $project->body }}</p>
-            <a href="/#projects" class="btn btn-success">Return</a>
-					</div>
+				<div class="col-lg-8 mb-2 mx-auto">
+               <img src="{{ asset('images/' . $project->image) }}" class="img-fluid z-depth-2" style="height:auto;">
+               <h2 class="h2-responsive mt-3 mb-2 wow bounceInDown">{{ $project->title }}</h2>
+               <p class="text-justify">{!! $project->body !!}</p>
 
+               <div class="mt-4 d-flex justify-content-end">
+                  @foreach ($project->skills as $skill)
+                     <span class="btn btn-sm btn-primary float-right">{{ $skill->skill }}</span>
+                  @endforeach
+               </div>
+
+               <hr>
+               <a href="/#projects" class="btn btn-success">Return</a>
 				</div>
-  				<!-- /.First row -->
+
+			</div>
+			<!-- /.First row -->
 
     </section>
   </div>

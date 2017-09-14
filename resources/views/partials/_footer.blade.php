@@ -1,8 +1,8 @@
 <footer class="page-footer center-on-small-only" id="footer">
-  <div class="container pt-2 pb-2">
+  <div class="container">
     <div class="row">
 
-      <div class="col-lg-4">
+      <!-- <div class="col-lg-4">
         <h5 class="h5-responsive wow slideInLeft">Contact info</h5>
         <hr class="hidden-md-down wow slideInLeft">
         <p class="wow slideInLeft">Phone: 09777021647</p>
@@ -21,19 +21,22 @@
           <li class="nav-item wow slideInUp"><a href="#projects" class="footer-nav">Works</a></li>
           <li class="nav-item wow slideInUp"><a href="#contact" class="footer-nav">Contact</a></li>
         </ul>
-      </div>
+      </div> -->
 
-      <div class="col-lg-4">
-        <hr class="hidden-lg-up">
-        <h5 class="h5-responsive wow slideInRight">Social media</h5>
-        <hr class="hidden-md-down wow slideInRight">
-        <a href="" class="btn btn-floating btn-fb wow slideInRight"><i class="fa fa-facebook left"></i></a>
-        <a href="" class="btn btn-floating btn-tw wow slideInRight"><i class="fa fa-twitter"></i></a>
-        <a href="" class="btn btn-floating btn-gplus wow slideInRight"><i class="fa fa-google-plus"></i></a>
-        <a href="" class="btn btn-floating btn-li wow slideInRight"><i class="fa fa-linkedin"></i></a>
-        <a href="" class="btn btn-floating btn-ins wow slideInRight"><i class="fa fa-instagram"></i></a>
-        <a href="" class="btn btn-floating btn-so wow slideInRight"><i class="fa fa-stack-overflow"></i></a>
-        <a href="" class="btn btn-floating btn-git wow slideInRight"><i class="fa fa-github"></i></a>
+      <div class="col-sm-12">
+        <!-- <hr class="hidden-lg-up"> -->
+        <!-- <h5 class="h5-responsive wow slideInRight">Social media</h5> -->
+        <!-- <hr class="hidden-md-down wow slideInRight"> -->
+        <div class="text-center d-flex justify-content-center">
+          <a href="" class="btn btn-floating btn-fb wow slideInRight"><i class="fa fa-facebook left"></i></a>
+          <a href="" class="btn btn-floating btn-tw wow slideInRight"><i class="fa fa-twitter"></i></a>
+          <a href="" class="btn btn-floating btn-gplus wow slideInRight"><i class="fa fa-google-plus"></i></a>
+          <a href="" class="btn btn-floating btn-li wow slideInRight"><i class="fa fa-linkedin"></i></a>
+          <a href="" class="btn btn-floating btn-ins wow slideInRight"><i class="fa fa-instagram"></i></a>
+          <a href="" class="btn btn-floating btn-so wow slideInRight"><i class="fa fa-stack-overflow"></i></a>
+          <a href="" class="btn btn-floating btn-git wow slideInRight"><i class="fa fa-github"></i></a>
+        </div>
+        <hr>
       </div>
 
     </div>
@@ -45,18 +48,3 @@
     </div>
   </div>
 </footer>
-
-
-<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCgAdScSFQhkH_OD1wgV0znyvcicfyHpwM",
-    authDomain: "project-af0a1.firebaseapp.com",
-    databaseURL: "https://project-af0a1.firebaseio.com",
-    projectId: "project-af0a1",
-    storageBucket: "project-af0a1.appspot.com",
-    messagingSenderId: "805921108179"
-  };
-  firebase.initializeApp(config);
-</script>

@@ -1,47 +1,26 @@
 <div class="container">
   <section id="skills" class="pt-5 pb-3">
     <h2 class="h2-responsive section-heading text-center pb-2 wow bounceInDown">What i do?</h2>
-    <p class="text-center pb-2 wow bounceInDown">Technologies I am using in Web development.</p>
+    <p class="text-center pb-2 wow bounceInDown">Main tools and technologies I use.</p>
 
     <!-- First row -->
 				<div class="row text-center wow fadeIn" data-wow-delay="1s">
 
-					<div class="col-md-12 col-lg-4 mb-2">
+					@foreach ($skills as $skill)
+          <div class="col-sm-3 mb-2">
 
-						<i class="fa fa-code deep-orange-text fa-4x" aria-hidden="true"></i>
-						<h4 class="lead mt-2 mb-2 text-uppercase">{{ $tags[1]->name }}</h4>
-						<ul class="list-group z-depth-0 pb-3">
-							@foreach ($dev as $devs)
-							  <li class="list-group-item flex-column">{{ $devs->skill }}</li>
-							@endforeach
-						</ul>
+            <img src="{{ asset('images/' . $skill->image) }}" class="img-fluid" style="" alt="">
 
-					</div>
-					<div class="col-md-12 col-lg-4 mb-2">
+            <!-- <ul class="list-group z-depth-0 pb-3">
+              {{ $skill->skill }}
+            </ul> -->
+            <p class="text-center grey-text mb-2 mt-1">{{ strtoupper($skill->skill) }}</p>
 
-						<i class="fa fa-paint-brush green-text fa-4x" aria-hidden="true"></i>
-						<h4 class="lead mt-2 mb-2 text-uppercase">{{ $tags[0]->name }}</h4>
-						<ul class="list-group z-depth-0 pb-3">
-							@foreach ($des as $desi)
-							  <li class="list-group-item flex-column">{{ $desi->skill }}</li>
-							@endforeach
-						</ul>
-
-					</div>
-					<div class="col-md-12 col-lg-4 mb-2">
-
-						<i class="fa fa-wrench blue-text fa-4x" aria-hidden="true"></i>
-						<h4 class="lead mt-2 mb-2 text-uppercase">{{ $tags[2]->name }}</h4>
-						<ul class="list-group z-depth-0 pb-3">
-							@foreach ($tool as $tools)
-							  <li class="list-group-item flex-column">{{ $tools->skill }}</li>
-							@endforeach
-						</ul>
-
-					</div>
+          </div>
+					@endforeach
 
 				</div>
-				<!-- /.First row -->
+			<!-- /.First row -->
   </section>
 </div>
 

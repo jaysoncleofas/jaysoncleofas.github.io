@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Project;
+use App\Skill;
 use Session;
 use App\Http\Requests\ProjectRequest;
+use Image;
+use Purifier;
 
 class ProjectController extends Controller
 {
@@ -25,7 +27,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(1);
+        $projects = Project::latest()->paginate(5);
         $no = 1;
         return view('admin.projects-index', compact('projects'))->withNumber($no);
     }
@@ -37,7 +39,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects-create');
+        $skills = Skill::orderBy('skill')->get();
+        return view('admin.projects-create', compact('skills'));
     }
 
     /**
@@ -49,15 +52,23 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
 
-        auth()->user()->addProjects(
+          $project = new Project;
+          $project->user_id = auth()->id();
+          $project->title = $request->title;
+          $project->body = Purifier::clean($request->body);
 
-          new Project(request(['title', 'body', 'slug']))
+          if ($request->hasFile('featured_image')) {
+             $image = $request->file('featured_image');
+             $filename = time() . '.' . $image->getClientOriginalExtension();
+             $location = public_path('images/' . $filename);
+             Image::make($image)->resize(800, 400)->save($location);
 
-        );
+             $project->image = $filename;
+          }
 
-        // Project::create(request(['title','body']));
+          $project->save();
 
-        // Session::flash('success', 'Your rpoject was successfully added!');
+          $project->skills()->sync($request->skills, false);
 
         session()->flash('message', 'Your project was successfully added!');
 
@@ -82,9 +93,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        return view('admin.projects-edit', compact('project'));
+      $project = Project::find($id);
+       $skills = Skill::orderBy('skill')->get();
+        return view('admin.projects-edit', compact('project', 'skills'));
     }
 
     /**
@@ -99,25 +112,43 @@ class ProjectController extends Controller
         //Validate
         $project = Project::find($id);
 
-        if ($request->input('slug') == $project->slug || $request->input('title') == $project->title) {
+        if ($request->input('title') != $project->title) {
            $this->validate($request, [
-             'body' => 'required'
-            ]);
-        }else {
+             'title' => 'required|unique:projects',
+          ]);
+
+      //  } else if ($request->input('slug') != $project->slug) {
+      //     $this->validate($request, [
+      //        'slug' => 'required|unique:projects',
+      //     ]);
+       }else {
            $this->validate($request, [
-              'title' => 'required|unique:projects',
-             'body' => 'required',
-              'slug' => 'unique:projects'
+              'body' => 'required'
            ]);
         }
+
         //Save
-        $project = Project::find($id);
 
         $project->title = $request->input('title');
-        $project->body = $request->input('body');
-        $project->slug = $request->input('slug');
+        $project->body = Purifier::clean($request->input('body'));
+
+        if ($request->hasFile('featured_image')) {
+          $image = $request->file('featured_image');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('images/' . $filename);
+          Image::make($image)->resize(800, 400)->save($location);
+
+          $project->image = $filename;
+        }
 
         $project->save();
+
+        if (isset($request->skills)) {
+           $project->skills()->sync($request->skills);
+        } else {
+           $project->skills()->sync(array());
+        }
+
 
         //flash
         // Session::flash('success', 'This project was successfully saved!');
@@ -136,6 +167,7 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
+        $project->skills()->detach();
         $project->delete();
 
         session()->flash('message', 'This project was successfully deleted!');

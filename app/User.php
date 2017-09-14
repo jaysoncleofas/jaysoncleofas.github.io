@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'profession', 'email', 'password', 'phone', 'address'
+        'name', 'email', 'password',
     ];
 
     /**
@@ -46,6 +46,11 @@ class User extends Authenticatable
     {
       $this->projects()->save($project);
     }
+
+    public function addTags(Tag $tag)
+    {
+      $this->tags()->save($tag);
+   }
 
     public function tags()
     {
