@@ -8,7 +8,6 @@
             @foreach ($users as $user)
             <img src="{{ asset('images/' . $user->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2 wow slideInLeft" style="height:300px;width:300px;border-radius:50%;">
           </div>
-
           <div class="col-sm-7 mt-2 wow slideInRight smooth-scroll">
 
               <p><strong>{{ $user->name }}</strong></p>

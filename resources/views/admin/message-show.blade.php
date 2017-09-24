@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h3><i class="fa fa-user btn btn-primary"></i> <strong>{{ $message->firstname }} {{ $message->lastname }}</strong></h3>
+        <h3><i class="fa fa-user btn btn-primary"></i> <strong>{{ $message->name }}</strong></h3>
         <hr>
       </div>
     </div>

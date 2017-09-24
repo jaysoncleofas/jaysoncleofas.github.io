@@ -45,9 +45,10 @@ class UserController extends Controller
     {
         $this->validate(request(), [
 
-          'firstname' => 'required',
-          'lastname' => 'required',
+          'name' => 'required|min:4|max:70',
           'email' => 'required',
+          'contactNumber' => 'required',
+          'subject' => 'required',
           'message' => 'required'
 
         ]);
@@ -72,7 +73,7 @@ class UserController extends Controller
 
             $message = new Message;
 
-            Message::create(request(['firstname', 'lastname', 'email', 'message']));
+            Message::create(request(['name', 'email', 'contactNumber', 'subject', 'message']));
 
             Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
               return redirect('/#your-message');

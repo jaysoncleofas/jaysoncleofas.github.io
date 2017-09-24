@@ -72,49 +72,21 @@
 
             <div class="d-flex w-100 justify-content-between">
               <h5 class="">
-                <!-- <i class="fa fa-user fa-3x mr-3 float-left"></i> -->
-                <strong>{{ ucfirst($message->firstname. ' ' .$message->lastname) }}</strong>
+                <strong>{{ ucfirst($message->name) }}</strong>
               </h5>
               <small class="text-muted">{{ $message->created_at->diffforHumans() }}</small>
             </div>
             <p class="teal-text">
-              <!-- <strong>{{ ucfirst($message->firstname) }}:</strong> -->
-               "{{ substr($message->message, 0, 64) }}{{ strlen($message->message) > 25 ? "..." : "" }}"
+               {{ substr($message->message, 0, 64) }}{{ strlen($message->message) > 25 ? "..." : "" }}
              </p>
-            <!-- <small class="text-muted">{{ $message->email }}</small> -->
           </a>
           @endforeach
           <div class="mt-1 mx-3">
-            <div class="float-left">
-              <p class="">Total: {{ $messages->total() }}</p>
-            </div>
             <div class="float-right">
               {{ $messages->links('vendor.pagination.bootstrap-4') }}
             </div>
           </div>
         </div>
-        <!-- <div class="card mb-5">
-          <div class="card-header white-text bg-primary">
-            Recent messages
-          </div>
-          <div class="card-block">
-            <table class="table table-hover" id="messages-table">
-              <tbody>
-                @foreach ($messages as $message)
-                  <tr>
-                    <td><i class="fa fa-user blue-text"></i> {{ $message->firstname . ' ' . $message->lastname }}</td>
-                    <td><a href="{{ route('messages.show', $message->id) }}">{{ substr($message->message, 0, 25) }}{{ strlen($message->message) > 25 ? "..." : "" }}</a></td>
-                    <td><i class="fa fa-clock-o"></i> {{ $message->created_at->diffforHumans() }}</td>
-                  </tr>
-                @endforeach
-              </tbody>
-            </table>
-            <hr>
-            <div class="float-right">
-              {{ $messages->links('vendor.pagination.bootstrap-4') }}
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
 </div>

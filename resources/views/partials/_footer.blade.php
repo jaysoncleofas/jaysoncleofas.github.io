@@ -2,32 +2,19 @@
   <div class="container">
     <div class="row">
 
-      <!-- <div class="col-lg-4">
-        <h5 class="h5-responsive wow slideInLeft">Contact info</h5>
-        <hr class="hidden-md-down wow slideInLeft">
-        <p class="wow slideInLeft">Phone: 09777021647</p>
-        <p class="wow slideInLeft">E-mail address: jaysoncleofas22@gmail.com</p>
-        <p class="wow slideInLeft">Address: Paniqui, Tarlac</p>
+      <div class="col-lg-6 text-center">
+        {{-- <h5 class="h5-responsive wow slideInLeft">Contact info</h5>
+        <hr class="hidden-md-down wow slideInLeft"> --}}
+        @foreach ($users as $user)
+          <p><i class="fa fa-envelope"></i> {{ $user->email }}</p>
+          <p><i class="fa fa-mobile"></i> {{ $user->phoneNumber }}</p>
+          <p><i class="fa fa-map-marker"></i> {{ $user->address }}</p>
+        @endforeach
       </div>
 
-      <div class="col-lg-4">
-        <hr class="hidden-lg-up">
-        <h5 class="h5-responsive wow slideInUp">Navigation</h5>
-        <hr class="hidden-md-down wow slideInUp">
-        <ul class="smooth-scroll">
-          <li class="nav-item wow slideInUp"><a href="#home" class="footer-nav">Home</a></li>
-          <li class="nav-item wow slideInUp"><a href="#about" class="footer-nav">About</a></li>
-          <li class="nav-item wow slideInUp"><a href="#skills" class="footer-nav">Skills</a></li>
-          <li class="nav-item wow slideInUp"><a href="#projects" class="footer-nav">Works</a></li>
-          <li class="nav-item wow slideInUp"><a href="#contact" class="footer-nav">Contact</a></li>
-        </ul>
-      </div> -->
 
-      <div class="col-sm-12">
-        <!-- <hr class="hidden-lg-up"> -->
-        <!-- <h5 class="h5-responsive wow slideInRight">Social media</h5> -->
-        <!-- <hr class="hidden-md-down wow slideInRight"> -->
-        <div class="text-center d-flex justify-content-center">
+      <div class="col-sm-6 text-center">
+        <div class="text-center pt-2">
           <a href="" class="btn btn-floating btn-fb wow slideInRight"><i class="fa fa-facebook left"></i></a>
           <a href="" class="btn btn-floating btn-tw wow slideInRight"><i class="fa fa-twitter"></i></a>
           <a href="" class="btn btn-floating btn-gplus wow slideInRight"><i class="fa fa-google-plus"></i></a>
@@ -36,15 +23,14 @@
           <a href="" class="btn btn-floating btn-so wow slideInRight"><i class="fa fa-stack-overflow"></i></a>
           <a href="" class="btn btn-floating btn-git wow slideInRight"><i class="fa fa-github"></i></a>
         </div>
-        <hr>
       </div>
-
     </div>
+
   </div>
 
   <div class="footer-copyright">
     <div class="conatiner-fluid wow fadeInUp">
-      © 2017 Copyright: Alrights Reserve
+      <p>© 2017 By JAYSON CLEOFAS</p>
     </div>
   </div>
 </footer>

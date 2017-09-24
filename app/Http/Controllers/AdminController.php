@@ -80,11 +80,15 @@ class AdminController extends Controller
       $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'phoneNumber' => 'max:255',
+            'address' => 'max:255',
 
         ]);
 
-        $user->email = $request->input('email');
-        $user->name = $request->input('name');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phoneNumber = $request->phoneNumber;
+        $user->address = $request->address;
         $user->about = Purifier::clean($request->about);
 
 
@@ -110,7 +114,7 @@ class AdminController extends Controller
         $user->avatar = 'default.jpg';
         // save
         $user->save();
-        
+
         session()->flash('success', 'Success!');
         return redirect()->route('settings.index');
     }

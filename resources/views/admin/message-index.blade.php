@@ -35,7 +35,7 @@
                   @foreach ($messages as $message)
                     <tr>
                       <!-- <td>{{ $number++ }}</td> -->
-                      <td><i class="fa fa-user blue-text"></i> {{ $message->firstname }} {{ $message->lastname }}</td>
+                      <td><i class="fa fa-user blue-text"></i> {{ $message->name }}</td>
                       <td class="teal-text">{{ substr($message->message, 0, 50) }}{{ strlen($message->message) > 50 ? "..." : "" }}</td>
                       <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
                       <td>
@@ -55,7 +55,7 @@
                 </tbody>
               </table>
               <hr>
-              Total:<span class="badge green">{{ $messages->total() }} <i class="fa fa-envelope"></i></span>
+              <span class="badge green">{{ $messages->total() }} <i class="fa fa-envelope"></i></span>
               <div class="float-right">
                 {{ $messages->links('vendor.pagination.bootstrap-4') }}
               </div>
