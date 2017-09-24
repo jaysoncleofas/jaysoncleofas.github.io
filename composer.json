@@ -11,6 +11,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "mews/purifier": "^2.0",
+        "uxweb/sweet-alert": "^1.4",
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {

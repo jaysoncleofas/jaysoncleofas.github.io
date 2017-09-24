@@ -47,57 +47,6 @@
 			</div>
           </div>
         </div>
-        <!-- Central Modal Medium Info -->
-        <div class="modal fade" id="addskills" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-info" role="document">
-                <!--Content-->
-                <div class="modal-content">
-                    <!--Header-->
-                    <div class="modal-header">
-                        <p class="heading lead">Add New Skill</p>
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="white-text">&times;</span>
-                        </button>
-                    </div>
-
-                    <!--Body-->
-                    <div class="modal-body">
-                      <form method="post" action="{{ route('skills.store') }}" enctype="multipart/form-data" data-parsley-validate>
-                        {{ csrf_field() }}
-
-                        <div class="md-form {{ $errors->has('skill') ? 'has-danger' : '' }}">
-                          <input type="text" class="form-control" name="skill" value="{{ old('skill') }}" required="">
-                          <label for="">Skill</label>
-                          @if ($errors->has('skill'))
-                            <span class="text-danger">
-                              <strong>{{ $errors->first('skill') }}</strong>
-                            </span>
-                          @endif
-                        </div>
-
-                        <div class="row">
-                          <div class="col-sm-2 mt-1">
-                            <p>Image:</p>
-                          </div>
-                          <div class="col-sm-10">
-                            <div class="md-form">
-                              <input type="file" name="image" value="" class="form-control float-right">
-                            </div>
-                          </div>
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" name="button" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" name="button">Add</button>
-                    </div>
-                    </form>
-                </div>
-                <!--/.Content-->
-            </div>
-        </div>
       </div>
 
       <div class="col-lg-9">
@@ -123,7 +72,7 @@
                   @foreach ($skill as $skills)
                   <tr>
                       <td scope="row">{{ $number++ }}</td>
-                      <td><a href="#" class="teal-text">{{ $skills->skill }}</a></td>
+                      <td><a href="" data-target="" data-toggle="modal" class="teal-text">{{ $skills->skill }}</a></td>
                       <td><img src="{{ asset('images/' . $skills->image) }}" class="img-thumbnail" alt="" style="width:100px;"></td>
 
                       <td>{{ $skills->created_at->toFormattedDateString()}}</td>
@@ -134,31 +83,6 @@
                               <i class="fa fa-times"></i>
                            </button>
                         </form>
-                        {{-- MODAL ALERT --}}
-                        <div class="modal fade" id="delete-alert" tabindex="-1" role="dialog" aria-labelledby="myModalAlert" aria-hidden="true">
-                           <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                 {{-- <div class="modal-header">
-                                    <p class="heading lead">Delete a skill</p>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
-                                       <span aria-hidden="true" class="white-text">&times;</span>
-                                    </button>
-                                 </div> --}}
-                                 <div class="modal-body">
-                                    <div class="text-center">
-                                       <p>Are you sure you want to delete this skill?</p>
-                                    </div>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <a class="btn btn-outline-danger waves-effect" data-dismiss="modal">Cancel</a>
-                                    <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">
-                                       {{ csrf_field() }}{{ method_field('DELETE') }}
-                                       <button class="btn btn-danger" type="submit" name="button">Delete</button>
-                                    </form>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
                       </td>
                   </tr>
                   @endforeach

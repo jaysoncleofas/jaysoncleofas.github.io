@@ -1,16 +1,16 @@
 <div class="container">
   <section id="about" class="pt-5 pb-5">
-    <div class="card">
-      <div class="card-block">
+
         <h2 class="h2-responsive section-heading text-center mb-2 wow bounceInDown">Who am i?</h2>
-        <hr>
+        <!-- <hr> -->
         <div class="row">
-          <div class="col-12 col-sm-3 pb-2">
-            <img src="../img/ok.jpg" alt="My photo" class="img-fluid z-depth-2 wow slideInLeft" style="border-radius:;">
+          <div class="col-sm-5 pb-2">
+            @foreach ($users as $user)
+            <img src="{{ asset('images/' . $user->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2 wow slideInLeft" style="height:300px;width:300px;border-radius:50%;">
           </div>
 
-          <div class="col-lg-9 wow slideInRight smooth-scroll">
-            @foreach ($users as $user)
+          <div class="col-sm-7 mt-2 wow slideInRight smooth-scroll">
+
               <p><strong>{{ $user->name }}</strong></p>
               <div class="mb-1">
                 <a href="#" class="fb-ic mr-1">
@@ -30,12 +30,47 @@
             @endforeach
           </div>
         </div>
-      </div>
-    </div>
+
+
 
   </section>
 </div>
-
+<div class="container-fluid" style="background:#34495e;">
+  <div class="container white-text">
+    <div class="row pt-3">
+      <div class="col-md-4 mb-r">
+        <div class="col-1 col-md-2 float-left">
+            <i class="fa fa-code blue-text fa-3x"></i>
+        </div>
+        <div class="col-10 col-md-9 col-lg-10 float-right">
+            <h4 class="feature-title">Developer</h4>
+            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+            <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
+        </div>
+      </div>
+      <div class="col-md-4 mb-r">
+        <div class="col-1 col-md-2 float-left">
+            <i class="fa fa-paint-brush pink-text fa-3x"></i>
+        </div>
+        <div class="col-10 col-md-9 col-lg-10 float-right">
+            <h4 class="feature-title">Designer</h4>
+            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+            <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
+        </div>
+      </div>
+      <div class="col-md-4 mb-r">
+        <div class="col-1 col-md-2 float-left">
+            <i class="fa fa-laptop purple-text fa-3x"></i>
+        </div>
+        <div class="col-10 col-md-9 col-lg-10 float-right">
+            <h4 class="feature-title">Freelancer</h4>
+            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+            <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!--Mask-->
 {{-- <div class="view hm-light about-title">
     <div class="full-bg-img flex-center">

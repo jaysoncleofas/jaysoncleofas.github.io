@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/', 'UserController@store')->name('message.store');
 Route::resource('skills', 'SkillController');
 Route::resource('settings', 'AdminController');
-Route::resource('tags', 'TagController');
+Route::post('settings/{id}', 'AdminController@updateImage')->name('updateImage');
+Route::resource('change-password', 'ChangePasswordController');
 Route::resource('projects', 'ProjectController');
 Route::resource('messages', 'MessageController');

@@ -54,9 +54,6 @@
       <div class="col-lg-12 mx-auto">
         <div class="card mb-2">
           <div class="card-block">
-
-
-
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -95,7 +92,6 @@
                 </tbody>
               </table>
             </div>
-
           </div>
         </div>
               {{-- <div class="card">

@@ -7,6 +7,9 @@ use App\User;
 use App\Http\Requests\UpdateAccount;
 use Auth;
 use Purifier;
+use Image;
+use Illuminate\Http\File;
+
 
 class AdminController extends Controller
 {
@@ -27,7 +30,7 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('admin.settings-index', compact('user'));
+        return view('admin.settings-index1', compact('user'));
     }
 
     /**
@@ -37,19 +40,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -70,8 +63,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find(Auth::user()->id);
-        return view('admin.settings-edit', compact('user'));
+//
     }
 
     /**
@@ -91,25 +83,10 @@ class AdminController extends Controller
 
         ]);
 
-
-
         $user->email = $request->input('email');
         $user->name = $request->input('name');
         $user->about = Purifier::clean($request->about);
 
-        if ($request->input('password') != '') {
-
-          if ($request->input('password') == $user->password) {
-            $this->validate($request, [
-                'new_password' => 'min:6|confirmed'
-              ]);
-
-              $user->password = bcrypt($request->input('new_password'));
-          } else {
-            session()->flash('error', 'Invalid Current Password');
-          }
-
-        }
 
         $user->save();
 
@@ -126,6 +103,45 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find(Auth::user()->id);
+        // /unlink
+        \File::delete('images/' . $user->avatar);
+        // default image
+        $user->avatar = 'default.jpg';
+        // save
+        $user->save();
+        
+        session()->flash('success', 'Success!');
+        return redirect()->route('settings.index');
+    }
+
+    public function updateImage(Request $request, $id)
+    {
+        $user = Auth::user();
+
+      if ($request->hasFile('avatar')) {
+
+        $this->validate($request, [
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:208',
+        ]);
+
+        $avatar = $request->file('avatar');
+        $filename = time() . '.' . $avatar->getClientOriginalExtension();
+        $location = public_path('images/' . $filename);
+        Image::make($avatar)->resize(300, 300)->save($location);
+
+        $user->avatar = $filename;
+        $user->save();
+
+        session()->flash('success', 'Profile photo changed!');
+        return redirect()->back();
+
+      } else {
+
+        session()->flash('error', 'Select photo first!');
+        return redirect('/settings');
+
+      }
+
     }
 }

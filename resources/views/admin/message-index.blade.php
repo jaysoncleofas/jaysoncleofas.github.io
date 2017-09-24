@@ -23,31 +23,29 @@
               <table class="table table-hover">
                 <thead>
                   <tr class="primary-color white-text">
-                    <th>#</th>
+                    <!-- <th>#</th> -->
                     <th>Name</th>
                     <th>Message</th>
                     <th>Date</th>
-                    <th colspan="2"></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
 
                   @foreach ($messages as $message)
                     <tr>
-                      <td>{{ $number++ }}</td>
-                      <td>{{ $message->firstname }} {{ $message->lastname }}</td>
-                      <td>
-                        <a href="{{ route('messages.show', $message->id) }}" class="teal-text">
-                           {{ substr($message->message, 0, 50) }}{{ strlen($message->message) > 50 ? "..." : "" }}</td>
-                        </a>
+                      <!-- <td>{{ $number++ }}</td> -->
+                      <td><i class="fa fa-user blue-text"></i> {{ $message->firstname }} {{ $message->lastname }}</td>
+                      <td class="teal-text">{{ substr($message->message, 0, 50) }}{{ strlen($message->message) > 50 ? "..." : "" }}</td>
                       <td>{{ date('M j, Y', strtotime($message->created_at)) }}</td>
-                      <td>
-                     </td>
                       <td>
                         <form class="" action="{{ route('messages.destroy' , $message->id) }}" method="post">
                            {{ csrf_field() }} {{ method_field('DELETE') }}
+                           <a href="{{ route('messages.show', $message->id) }}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                             <i class="fa fa-eye"></i>
+                           </a>
                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete?')" data-toggle="tooltip" data-placement="top" title="Delete">
-                               <i class="fa fa-times"></i>
+                               <i class="fa fa-trash"></i>
                            </button>
                         </form>
                       </td>
@@ -57,6 +55,7 @@
                 </tbody>
               </table>
               <hr>
+              Total:<span class="badge green">{{ $messages->total() }} <i class="fa fa-envelope"></i></span>
               <div class="float-right">
                 {{ $messages->links('vendor.pagination.bootstrap-4') }}
               </div>

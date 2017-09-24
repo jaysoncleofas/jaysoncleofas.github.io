@@ -180,6 +180,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
     ],
 
@@ -232,6 +233,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Purifier' =>  Mews\Purifier\Facades\Purifier::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
 
     ],
 

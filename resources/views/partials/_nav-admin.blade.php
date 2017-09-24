@@ -10,7 +10,7 @@
         <li class="nav-item dropdown btn-group">
 
           <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ ucwords(Auth::user()->name) }}<span class="caret"></span>
+            <img src="{{ asset('images/'. Auth::user()->avatar) }}" alt="" style="border-radius:50%;height:30px;width:30px;"> {{ ucwords(Auth::user()->name) }}<span class="caret"></span>
           </a>
 
           <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">

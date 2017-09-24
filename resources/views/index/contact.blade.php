@@ -3,7 +3,7 @@
     <div class="full-bg-img flex-center smooth-scroll">
       <div class="white-text text-center">
         <h3 class="h3-responsive intro-heading wow lightSpeedIn text-uppercase">Let's make something awesome together.</h3>
-        <a href="#your-message" class="btn btn-danger btn-lg mt-2 wow lightSpeedIn">Get in touch</a>
+        <a href="#your-message" class="btn btn-primary btn-lg mt-2 wow lightSpeedIn">Get in touch</a>
       </div>
     </div>
 </div>

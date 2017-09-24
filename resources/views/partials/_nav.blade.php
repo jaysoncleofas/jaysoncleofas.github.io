@@ -27,16 +27,13 @@
               <!--Navbar icons-->
   					<ul class="nav navbar-nav nav-flex-icons">
   						<li class="nav-item">
-  							<a class="nav-link"><i class="fa fa-facebook"></i></a>
+  							<a target="_blank" href="https://www.facebook.com/8H8qLTxmHBUQpjDB" class="nav-link"><i class="fa fa-facebook"></i></a>
   						</li>
   						<li class="nav-item">
   							<a class="nav-link"><i class="fa fa-twitter"></i></a>
   						</li>
   						<li class="nav-item">
-  							<a class="nav-link"><i class="fa fa-instagram"></i></a>
-  						</li>
-              <li class="nav-item">
-  							<a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in"></i></a>
+  							<a href="https://www.instagram.com/jayson_cleofas/" target="_blank" class="nav-link"><i class="fa fa-instagram"></i></a>
   						</li>
   					</ul>
 
