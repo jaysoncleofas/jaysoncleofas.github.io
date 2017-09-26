@@ -2,12 +2,9 @@
 
 @section('title', 'Settings')
 
-@section('tinymce')
-    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-    <script>tinymce.init({ selector:'textarea', plugins:'link', height:150 });</script>
-@endsection
-
 @section('stylesheets')
+  <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+  <script>tinymce.init({ selector:'textarea', plugins:'link', height:150 });</script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
 

@@ -24,21 +24,9 @@ class SkillController extends Controller
    */
   public function index()
   {
-
-       $skill = Skill::all();
-
-       $no = 1;
+       $skill = Skill::latest()->paginate(5);
+       $no = (($skill->currentpage() - 1) * $skill->perpage()) + 1;
        return view('admin.skills-index', compact('skill'))->withNumber($no);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-      //
   }
 
   /**
@@ -50,10 +38,7 @@ class SkillController extends Controller
   public function store(Request $request)
   {
       $this->validate(request(), [
-
         'skill' => 'required|unique:skills',
-
-
       ]);
 
       $skill = new Skill;
@@ -71,32 +56,15 @@ class SkillController extends Controller
 
       $skill->save();
       //   auth()->user()->addSkill(
-      //
       //   new Skill(request(['skill']))
-      //
       // );
-
-
       // Skill::create([
       //   'user_id' => auth()->id(),
       //   'skill' => request('skill'),
       //   'category' => request('category')
-      //
       // ]);
-
       Session::flash('success', 'Your skill was successfully added!');
-      return back();
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show($id)
-  {
-      //
+      return redirect()->route('skills.index');
   }
 
   /**
@@ -107,7 +75,9 @@ class SkillController extends Controller
    */
   public function edit($id)
   {
-      //
+      $skill = Skill::findOrFail($id);
+      $number = 1;
+      return view('admin.skills-edit', compact('skill', 'number'));
   }
 
   /**
@@ -119,7 +89,13 @@ class SkillController extends Controller
    */
   public function update(Request $request, $id)
   {
-      //
+      $skill = Skill::findOrFail($id);
+
+      $skill->skill = $request->skill;
+      $skill->save();
+
+      Session::flash('success', 'Successsfully updated your skill!');
+      return redirect()->route('skills.index');
   }
 
   /**

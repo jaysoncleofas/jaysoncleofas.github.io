@@ -17,13 +17,6 @@
       <div class="col-lg-4">
           <!-- update-profile-picture -->
           @include('admin.update-profile-pic')
-
-        <div class="list-group mb-2">
-          <a href="{{ route('settings.index') }}" id class="list-group-item d-flex justify-content-between align-items-center active" data-toggle="" data-target="#change_password">
-            Back
-            <i class="fa fa-chevron-right"></i>
-          </a>
-        </div>
       </div>
 
         <div class="col-lg-8">

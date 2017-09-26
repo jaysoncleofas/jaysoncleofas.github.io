@@ -13,3 +13,12 @@
     });
   </script>
 @endif
+
+
+@if ($flash = session('message'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+        swal("Error!", "{{ $flash }}", "success");
+    });
+  </script>
+@endif

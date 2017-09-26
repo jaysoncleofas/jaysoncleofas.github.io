@@ -8,8 +8,6 @@
 
     <title>{{ config('app.name') }} @yield('title')</title>
 
-    @yield('tinymce')
-
     <!-- Styles -->
     <link href="{{ asset('MDB/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('MDB/css/mdb.css') }}" rel="stylesheet">

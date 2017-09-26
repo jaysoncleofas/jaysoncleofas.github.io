@@ -3,6 +3,9 @@
 @section('stylesheets')
   <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" /> -->
+  <style media="screen">
+    .g-recaptcha div { margin-left: auto; margin-right: auto;}
+  </style>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection
 
