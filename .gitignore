@@ -11,4 +11,3 @@ npm-debug.log
 composer.phar
 Thumbs.db
 .DS_Store
-/bootstrap/compiled.php
