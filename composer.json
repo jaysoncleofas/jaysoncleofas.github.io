@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "mews/purifier": "^2.0",
         "uxweb/sweet-alert": "^1.4",
-        "yajra/laravel-datatables-oracle": "~8.0"
+        "yajra/laravel-datatables-oracle": "~8.0",
+        "gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
