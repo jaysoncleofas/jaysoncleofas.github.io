@@ -1,6 +1,4 @@
 /node_modules
-/storage/*.key
-/vendor
 /.idea
 /.vagrant
 Homestead.json
