@@ -51,8 +51,8 @@ class QueryDataTable extends DataTableAbstract
     public function __construct(Builder $builder)
     {
         $this->query      = $builder;
-        $this->request    = resolve('datatables.request');
-        $this->config     = resolve('datatables.config');
+        $this->request    = app('datatables.request');
+        $this->config     = app('datatables.config');
         $this->columns    = $builder->columns;
         $this->connection = $builder->getConnection();
         if ($this->config->isDebugging()) {
@@ -593,7 +593,7 @@ class QueryDataTable extends DataTableAbstract
      * @param string $column
      * @param array  $orderable
      */
-    protected function applyOrderColumn($column, $orderable): void
+    protected function applyOrderColumn($column, $orderable)
     {
         $sql      = $this->columnDef['order'][$column]['sql'];
         $sql      = str_replace('$1', $orderable['direction'], $sql);
