@@ -22,22 +22,12 @@
         <div class="col-lg-8">
           <div class="card mt-2 mb-2">
             <div class="card-up">
-              <i class="fa fa-users indigo"></i>
+              <i class="fa fa-lock indigo"></i>
               <div class="data">
                 <h5>Change Password</h5>
               </div>
             </div>
             <div class="card-block">
-              <!-- @if (Session::has('success'))
-                <div class="alert alert-success">
-                  {{ Session::get('success') }}
-                </div>
-              @endif
-              @if (Session::has('error'))
-                <div class="alert alert-danger">
-                  {{ Session::get('error') }}
-                </div>
-              @endif -->
               <form class="px-3" action="{{ route('change-password.update', $user->id) }}" method="post" data-parsley-validate>
                 {{ csrf_field() }}{{ method_field('PATCH') }}
                   <div class="md-form {{ $errors->has('oldpassword') ? 'has-danger' : '' }}">

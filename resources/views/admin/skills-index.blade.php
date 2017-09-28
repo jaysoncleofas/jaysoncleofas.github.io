@@ -19,7 +19,7 @@
             <div class="form-header red">
               SKILL FORM
             </div>
-            <form class="" action="{{ route('skills.store') }}" method="post" data-parsley-validate>
+            <form class="" action="{{ route('skills.store') }}" enctype="multipart/form-data" method="post" data-parsley-validate>
               {{ csrf_field() }}
               <div class="md-form {{ $errors->has('skill') ? 'has-danger' : '' }}">
                 <input type="text" name="skill" class="form-control" value="{{ old('skill') }}" required>
@@ -29,6 +29,15 @@
                     <strong>{{ $errors->first('skill') }}</strong>
                   </span>
                 @endif
+              </div>
+              <p>Image:</p>
+              <div class="md-form {{ $errors->has('image') ? 'has-danger' : '' }}">
+                 <input type="file" name="image" value="" class="form-control">
+                 @if ($errors->has('image'))
+                   <span class="text-danger">
+                     <strong>{{ $errors->first('image') }}</strong>
+                   </span>
+                 @endif
               </div>
               <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addskills" name="button"><i class="fa fa-plus"></i> New Skill</button>
             </form>
@@ -45,6 +54,7 @@
                   <tr>
                     <th>#</th>
                     <th>Skills</th>
+                    <th>Image</th>
                     <th>Date</th>
                     <th></th>
                   </tr>
@@ -54,6 +64,7 @@
                   <tr>
                     <td scope="row">{{ $number++ }}</td>
                     <td class="teal-text">{{ $skills->skill }}</td>
+                    <td><img src="{{ asset('images/' . $skills->image) }}" alt="" class="img-thumbnail" style="width:100px;" ></td>
                     <td>{{ $skills->created_at->toFormattedDateString()}}</td>
                     <td>
                       <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">
@@ -71,10 +82,10 @@
                 </tbody>
               </table>
             </div>
-              <hr>
-              <div class="float-right">
-                {{ $skill->links('vendor.pagination.bootstrap-4') }}
-              </div>
+            <hr>
+            <div class="float-right">
+              {{ $skill->links('vendor.pagination.bootstrap-4') }}
+            </div>
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ class SkillController extends Controller
          $image = $request->file('image');
          $filename = time() . '.' . $image->getClientOriginalExtension();
          $location = public_path('images/' . $filename);
-         Image::make($image)->resize(800, 400)->save($location);
+         Image::make($image)->save($location);
 
          $skill->image = $filename;
       }
@@ -92,6 +92,16 @@ class SkillController extends Controller
       $skill = Skill::findOrFail($id);
 
       $skill->skill = $request->skill;
+
+      if ($request->hasFile('image')) {
+         $image = $request->file('image');
+         $filename = time() . '.' . $image->getClientOriginalExtension();
+         $location = public_path('images/' . $filename);
+         Image::make($image)->save($location);
+
+         $skill->image = $filename;
+      }
+
       $skill->save();
 
       Session::flash('success', 'Successsfully updated your skill!');
@@ -110,7 +120,7 @@ class SkillController extends Controller
       $skill->projects()->detach();
       $skill->delete();
 
-      session()->flash('message', 'This skill was successfully deleted!');
+      session()->flash('success', 'This skill was successfully deleted!');
 
       return redirect()->route('skills.index');
   }

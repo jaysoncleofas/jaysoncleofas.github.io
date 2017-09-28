@@ -19,7 +19,7 @@
             <div class="form-header red">
               EDIT FORM
             </div>
-            <form class="" action="{{ route('skills.update', $skill->id) }}" method="post" data-parsley-validate>
+            <form class="" action="{{ route('skills.update', $skill->id) }}" enctype="multipart/form-data" method="post" data-parsley-validate>
               {{ csrf_field() }}{{ method_field('PATCH') }}
               <div class="md-form {{ $errors->has('skill') ? 'has-danger' : '' }}">
                 <input type="text" name="skill" class="form-control" value="{{ $skill->skill }}" required>
@@ -29,6 +29,15 @@
                     <strong>{{ $errors->first('skill') }}</strong>
                   </span>
                 @endif
+              </div>
+              <p>Image:</p>
+              <div class="md-form {{ $errors->has('image') ? 'has-danger' : '' }}">
+                 <input type="file" name="image" value="" class="form-control">
+                 @if ($errors->has('image'))
+                   <span class="text-danger">
+                     <strong>{{ $errors->first('image') }}</strong>
+                   </span>
+                 @endif
               </div>
               <div class="float-right">
                 <a href="{{ URL::previous() }}" class="btn btn-danger">Cancel</a>

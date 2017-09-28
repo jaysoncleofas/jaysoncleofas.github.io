@@ -31,9 +31,10 @@ class HomeController extends Controller
 
         $projects = Project::all();
         $skill = Skill::all();
-        $messages = Message::latest()->paginate(3);
+        $message = Message::all();
+        $messages = Message::latest()->take(5)->get();
         // return Datatables::eloquent(Message::query())->make(true);
-        return view('home', compact('messages', 'projects', 'skill'));
+        return view('home', compact('messages', 'message', 'projects', 'skill'));
     }
 
     // public function get_datatables()

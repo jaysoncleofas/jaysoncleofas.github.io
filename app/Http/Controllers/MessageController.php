@@ -26,7 +26,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::latest()->paginate(5);
-        $no = 1;
+        $no = (($messages->currentpage() - 1) * $messages->perpage()) + 1;
         return view('admin.message-index', compact('messages'))->withNumber($no);
     }
 
@@ -59,13 +59,6 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-      // $archives = Message::selectRaw('(firstname) firstname, (lastname) lastname, (message) message, (created_at) created_at, (id) id, count(*) total')
-      //       ->groupBy('firstname', 'lastname', 'message', 'created_at', 'id')
-      //       // ->orderByRaw('category', 'desc')
-      //       ->get()
-      //       ->toArray();
-      // Carbon::now('PHT');
-
         return view('admin.message-show', compact('message'));
     }
 
@@ -103,7 +96,7 @@ class MessageController extends Controller
         $message = Message::find($id);
         $message->delete();
 
-        session()->flash('message', 'This message was successfully deleted!');
+        session()->flash('success', 'This message was successfully deleted!');
 
         return redirect()->route('messages.index');
     }

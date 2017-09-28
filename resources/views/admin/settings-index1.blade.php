@@ -17,15 +17,7 @@
         <div class="col-lg-4">
             <!-- update-profile-picture -->
             @include('admin.update-profile-pic')
-
-            <div class="list-group mb-2">
-              <a href="{{ route('change-password.index') }}" id class="list-group-item d-flex justify-content-between align-items-center active" data-toggle="" data-target="#change_password">
-                Change Password
-                <i class="fa fa-chevron-right"></i>
-              </a>
-            </div>
         </div>
-
         <div class="col-lg-8">
           <form class="" action="{{ route('settings.update', $user->id) }}" method="post" data-parsley-validate>
             {{ csrf_field() }}{{ method_field('PATCH') }}
@@ -57,6 +49,9 @@
                         </span>
                       @endif
                     </div>
+                    <a href="{{ route('change-password.index') }}" class="btn-link">
+                      Change Password <i class="fa fa-chevron-right"></i>
+                    </a>
                   </div>
                   <div class="col-sm-6">
                     <div class="md-form">
@@ -67,7 +62,7 @@
                       <input type="text" id="searchLocation" placeholder="Enter a location" name="address" value="{{ $user->address }}" class="form-control">
                       <label for="">Address</label>
                     </div>
-                    <button class="btn btn-success btn-block" type="submit" name="button">Update</button>
+                    <button class="btn btn-primary btn-block" type="submit" name="button">Update</button>
                   </div>
                 </div>
               </div>
@@ -83,9 +78,6 @@
                       <label for=""></label>
                     </div>
                   </div>
-                  <!-- <div class="col-sm-6 ml-auto">
-                    <button class="btn btn-success btn-block" type="submit" name="button">Update</button>
-                  </div> -->
                 </div>
               </div>
             </div>

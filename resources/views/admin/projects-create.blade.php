@@ -5,7 +5,7 @@
 @section('stylesheets')
    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-   <script>tinymce.init({ selector:'textarea', height:300 });</script>
+   <script>tinymce.init({ selector:'textarea', height:200 });</script>
 @endsection
 
 @section('content')
@@ -36,14 +36,13 @@
                   </span>
                 @endif
               </div>
-
             </div>
           </div>
-
           <div class="card mb-2">
             <div class="card-block">
+              <p>Body:</p>
               <div class="md-form {{ $errors->has('body') ? 'has-danger' : '' }}">
-                <textarea name="body" name="body" class="md-textarea" rows="8" cols="80" value="{{ old('body') }}"></textarea>
+                <textarea name="body" name="body" class="md-textarea" value="{{ old('body') }}"></textarea>
                 @if ($errors->has('body'))
                   <span class="text-danger">
                     <strong>{{ $errors->first('body') }}</strong>
@@ -53,13 +52,17 @@
             </div>
           </div>
       </div>
-
       <div class="col-sm-5">
          <div class="card mt-1">
             <div class="card-block">
                <p>Image:</p>
-              <div class="md-form">
+              <div class="md-form {{ $errors->has('featured_image') ? 'has-danger' : '' }}">
                  <input type="file" name="featured_image" value="" class="form-control">
+                 @if ($errors->has('featured_image'))
+                   <span class="text-danger">
+                     <strong>{{ $errors->first('featured_image') }}</strong>
+                   </span>
+                 @endif
               </div>
 
               <p>Tags:</p>
@@ -75,8 +78,8 @@
          </div>
 
          <div class="md-form mt-2 float-right">
-           <button type="submit" name="button" class="btn btn-success">Save</button>
-           <a href="{{ route('projects.index') }}" class="btn btn-primary">Back</a>
+           <button type="submit" name="button" class="btn btn-primary">Save</button>
+           <a href="{{ route('projects.index') }}" class="btn btn-danger">Cancel</a>
          </div>
       </div>
         </form>

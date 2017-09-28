@@ -1,4 +1,4 @@
-<footer class="page-footer center-on-small-only" id="footer">
+<footer class="page-footer center-on-small-only" id="footer" style="background: url('../img/use_your_illusion.png')">
   <div class="container">
 
     @foreach ($users as $user)
@@ -17,8 +17,8 @@
         </div>
       </div>
     @endforeach
-    <hr>
-    <div class="row">
+    {{-- <hr> --}}
+    <div class="row mt-1">
       <div class="col-sm-12 text-center mb-2">
         <a href="" class="btn btn-floating btn-fb wow slideInRight"><i class="fa fa-facebook left"></i></a>
         <a href="" class="btn btn-floating btn-tw wow slideInRight"><i class="fa fa-twitter"></i></a>

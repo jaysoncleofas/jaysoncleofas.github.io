@@ -56,11 +56,15 @@
          <div class="card mt-1">
             <div class="card-block">
                <p>Image:</p>
-               <div class="md-form">
-                  <input type="file" name="featured_image" value="">
-                  <img src="{{ asset('images/' . $project->image) }}" alt="" class="img-thumbnail" style="width:200px;">
+               <img src="{{ asset('images/' . $project->image) }}" alt="" class="img-thumbnail img-fluid" style="">
+               <div class="md-form {{ $errors->has('featured_image') ? 'has-danger' : '' }}">
+                  <input type="file" name="featured_image" value="" class="form-control">
+                  @if ($errors->has('featured_image'))
+                    <span class="text-danger">
+                      <strong>{{ $errors->first('featured_image') }}</strong>
+                    </span>
+                  @endif
                </div>
-
                <p>Tags:</p>
                  <div class="md-form">
                        <select class="multiple-select form-control" multiple="multiple" name="skills[]" required>

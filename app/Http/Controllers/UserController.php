@@ -19,7 +19,7 @@ class UserController extends Controller
    */
   public function index()
     {
-        $skills = Skill::all();
+        $skills = Skill::latest()->get();
         $users = User::where('id', 1)->get();
         $projects = Project::latest()->get();
         return view('index', compact('projects', 'skills', 'users'));

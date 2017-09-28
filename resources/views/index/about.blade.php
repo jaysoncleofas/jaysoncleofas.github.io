@@ -38,32 +38,32 @@
   <div class="container white-text">
     <div class="row pt-3">
       <div class="col-md-4 mb-r">
-        <div class="col-1 col-md-2 float-left">
+        <div class="col-2 col-md-3 float-left">
             <i class="fa fa-code blue-text fa-3x"></i>
         </div>
-        <div class="col-10 col-md-9 col-lg-10 float-right">
-            <h4 class="feature-title">Developer</h4>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+        <div class="col-9 col-md-8 col-lg-9 float-right">
+            <h4 class="feature-title mb-2">Development</h4>
+            <p class="grey-text">Brings the design and functionality of an app to life. Using a mix of frameworks, build everything that makes a website function.</p>
             <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
         </div>
       </div>
       <div class="col-md-4 mb-r">
-        <div class="col-1 col-md-2 float-left">
+        <div class="col-2 col-md-3 float-left">
             <i class="fa fa-paint-brush pink-text fa-3x"></i>
         </div>
-        <div class="col-10 col-md-9 col-lg-10 float-right">
-            <h4 class="feature-title">Designer</h4>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+        <div class="col-9 col-md-8 col-lg-9 float-right">
+            <h4 class="feature-title mb-2">Modern design</h4>
+            <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends</p>
             <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
         </div>
       </div>
       <div class="col-md-4 mb-r">
-        <div class="col-1 col-md-2 float-left">
+        <div class="col-2 col-md-3 float-left">
             <i class="fa fa-laptop purple-text fa-3x"></i>
         </div>
-        <div class="col-10 col-md-9 col-lg-10 float-right">
-            <h4 class="feature-title">Freelancer</h4>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
+        <div class="col-9 col-md-8 col-lg-9 float-right">
+            <h4 class="feature-title mb-2">Responsive websites</h4>
+            <p class="grey-text">It doesn't matter on which device your projects will be displayed. It looks great on each screen</p>
             <!-- <a class="btn btn-primary btn-sm ml-0">Learn more</a> -->
         </div>
       </div>

@@ -126,7 +126,7 @@ class AdminController extends Controller
       if ($request->hasFile('avatar')) {
 
         $this->validate($request, [
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:208',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
         ]);
 
         $avatar = $request->file('avatar');
@@ -139,11 +139,6 @@ class AdminController extends Controller
 
         session()->flash('success', 'Profile photo changed!');
         return redirect()->back();
-
-      } else {
-
-        session()->flash('error', 'Select photo first!');
-        return redirect('/settings');
 
       }
 

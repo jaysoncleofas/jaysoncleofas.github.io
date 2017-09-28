@@ -28,7 +28,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::latest()->paginate(5);
-        $no = 1;
+        $no = (($projects->currentpage() - 1) * $projects->perpage()) + 1;
         return view('admin.projects-index', compact('projects'))->withNumber($no);
     }
 
@@ -58,6 +58,10 @@ class ProjectController extends Controller
           $project->body = Purifier::clean($request->body);
 
           if ($request->hasFile('featured_image')) {
+            $this->validate($request, [
+                'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
+            ]);
+
              $image = $request->file('featured_image');
              $filename = time() . '.' . $image->getClientOriginalExtension();
              $location = public_path('images/' . $filename);
@@ -70,7 +74,7 @@ class ProjectController extends Controller
 
           $project->skills()->sync($request->skills, false);
 
-        session()->flash('message', 'Your project was successfully added!');
+        session()->flash('success', 'Your project was successfully added!');
 
         return redirect('/projects');
 
@@ -116,23 +120,21 @@ class ProjectController extends Controller
            $this->validate($request, [
              'title' => 'required|unique:projects',
           ]);
-
-      //  } else if ($request->input('slug') != $project->slug) {
-      //     $this->validate($request, [
-      //        'slug' => 'required|unique:projects',
-      //     ]);
        }else {
            $this->validate($request, [
               'body' => 'required'
            ]);
         }
 
-        //Save
-
         $project->title = $request->input('title');
         $project->body = Purifier::clean($request->input('body'));
 
         if ($request->hasFile('featured_image')) {
+
+          $this->validate($request, [
+              'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
+          ]);
+
           $image = $request->file('featured_image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/' . $filename);
@@ -149,12 +151,8 @@ class ProjectController extends Controller
            $project->skills()->sync(array());
         }
 
+        session()->flash('success', 'This project was successfully saved!');
 
-        //flash
-        // Session::flash('success', 'This project was successfully saved!');
-        session()->flash('message', 'This project was successfully saved!');
-
-        //redirect
         return redirect()->route('projects.index');
     }
 
@@ -170,7 +168,7 @@ class ProjectController extends Controller
         $project->skills()->detach();
         $project->delete();
 
-        session()->flash('message', 'This project was successfully deleted!');
+        session()->flash('success', 'This project was successfully deleted!');
 
         return redirect()->route('projects.index');
     }
