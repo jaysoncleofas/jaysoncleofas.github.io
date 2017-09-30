@@ -5,7 +5,14 @@
 @section('stylesheets')
    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-   <script>tinymce.init({ selector:'textarea', height:200 });</script>
+   <script>
+        tinymce.init({
+          selector:'textarea',
+          toolbar:'fontsizeselect',
+          fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+          height:300
+        });
+   </script>
 @endsection
 
 @section('content')

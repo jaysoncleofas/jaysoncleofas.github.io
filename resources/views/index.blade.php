@@ -3,8 +3,16 @@
 @section('stylesheets')
   <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" /> -->
-  <style media="screen">
+  <style>
     .g-recaptcha div { margin-left: auto; margin-right: auto;}
+    @media (max-width: 740px) {
+            .full-height,
+            .full-height body,
+            .full-height header,
+            .full-height header .view {
+                height: 700px;
+            }
+        }
   </style>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

@@ -7,25 +7,19 @@ body {
   }
 .hero{
   font-family: Roboto;
-  // height: 670px;
-  // background: url("../img/computer.jpeg")no-repeat center center;
+  height: 670px;
+  background: url("../img/computer.jpeg")no-repeat center center;
   background-size: cover;
+
 }
-  .purple-gradient {
-  background: -webkit-linear-gradient(50deg, #ff6ec4, #7873f5);
-  background: linear-gradient(40deg, #ff6ec4, #7873f5); }
-}
-.hm-gradient .full-bg-img {
-            background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-            background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-            background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.6)), to(rgba(29, 210, 177, 0.6)));
-            background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-            background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.6), rgba(29, 210, 177, 0.6) 100%);
-        }
-.hm-gradient .mask {
-  background: -webkit-linear-gradient(45deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7) 100%);
-  background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.7)), to(rgba(91, 14, 214, 0.7)));
-  background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7) 100%); }
+
+.full-bg-img,  .orange-gradient {
+    background: -webkit-linear-gradient(50deg, rgba(103, 236, 197, 0.7), rgba(91, 14, 214, 0.7));
+    background: linear-gradient(40deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7)); }
+    .orange-gradient {
+        background: -webkit-linear-gradient(50deg, rgba(103, 236, 197, 0.7), rgba(91, 14, 214, 0.7));
+        background: linear-gradient(40deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7)); }
+
 .vew,.about-title{
   font-family: Roboto;
   height: 300px;

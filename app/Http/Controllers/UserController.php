@@ -19,9 +19,9 @@ class UserController extends Controller
    */
   public function index()
     {
-        $skills = Skill::latest()->get();
+        $skills = Skill::orderBy('skill', 'asc')->get();
         $users = User::where('id', 1)->get();
-        $projects = Project::latest()->get();
+        $projects = Project::oldest()->get();
         return view('index', compact('projects', 'skills', 'users'));
     }
 

@@ -1,11 +1,20 @@
+.navbar:not(.top-nav-collapse) {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 .navbar .navbar-user {
     background-color: transparent;
+    box-shadow: none;
+    font-weight: bold;
 }
 .navbar .navbar-projects {
     background-color: #1abc9c;
 }
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.1em;
 }
 .scrolling-navbar {
         -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;

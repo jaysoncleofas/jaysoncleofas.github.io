@@ -27,7 +27,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::latest()->paginate(5);
+        $projects = Project::oldest()->paginate(5);
         $no = (($projects->currentpage() - 1) * $projects->perpage()) + 1;
         return view('admin.projects-index', compact('projects'))->withNumber($no);
     }

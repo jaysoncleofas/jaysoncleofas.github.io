@@ -795,7 +795,7 @@ var app = new Vue({
 /* 9 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\n  background: linear-gradient(40deg, #ff6ec4, #7873f5); }\r\n                                                        ^\r\n      Invalid CSS after \"...c4, #7873f5); }\": expected selector or at-rule, was \"}\"\r\n      in D:\\folder\\project\\resources\\assets\\sass\\layout\\_base.scss (line 16, column 58)\n    at runLoaders (D:\\folder\\project\\node_modules\\webpack\\lib\\NormalModule.js:192:19)\n    at D:\\folder\\project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at D:\\folder\\project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:230:18\n    at context.callback (D:\\folder\\project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (D:\\folder\\project\\node_modules\\sass-loader\\lib\\loader.js:57:13)\n    at Object.<anonymous> (D:\\folder\\project\\node_modules\\sass-loader\\node_modules\\async\\dist\\async.js:2243:31)\n    at Object.callback (D:\\folder\\project\\node_modules\\sass-loader\\node_modules\\async\\dist\\async.js:906:16)\n    at options.error (D:\\folder\\project\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 10 */

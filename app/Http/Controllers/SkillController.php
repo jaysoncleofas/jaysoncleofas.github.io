@@ -24,7 +24,7 @@ class SkillController extends Controller
    */
   public function index()
   {
-       $skill = Skill::latest()->paginate(5);
+       $skill = Skill::latest()->paginate(10);
        $no = (($skill->currentpage() - 1) * $skill->perpage()) + 1;
        return view('admin.skills-index', compact('skill'))->withNumber($no);
   }

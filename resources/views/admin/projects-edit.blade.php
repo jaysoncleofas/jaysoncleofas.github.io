@@ -5,7 +5,15 @@
 @section('stylesheets')
    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
-  <script>tinymce.init({ selector:'textarea', height:300 });</script>
+   <script>
+        tinymce.init({
+          selector:'textarea',
+          toolbar:'fontsizeselect fontselect',
+          fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+          font_formats: 'Arial=arial,helvetica,sans-serif;Times New Roman=timesnewroman;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n',
+          height:300
+        });
+   </script>
 @endsection
 
 @section('content')

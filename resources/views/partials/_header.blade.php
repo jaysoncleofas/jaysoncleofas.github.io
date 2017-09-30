@@ -11,7 +11,7 @@
     <!-- Styles -->
     <link href="{{ asset('MDB/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('MDB/css/mdb.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/main.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     {{-- font-awesome --}}
