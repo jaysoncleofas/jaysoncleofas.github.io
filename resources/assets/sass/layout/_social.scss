@@ -3,6 +3,9 @@
 }
 .fb-ic {
   color: #3b5998;
+  :hover {
+    color: #4264aa;
+  }
 }
 .btn-fb:hover {
     background-color: #4264aa;
@@ -27,6 +30,9 @@
 }
 .li-ic {
   color: #0082ca;
+  :hover {
+    color: #0092e4;
+  }
 }
 .btn-li:hover{
   background-color: #0092e4;
@@ -40,6 +46,12 @@
 .btn-so{
   background-color: #f69c55;
 }
+.so-ic{
+  color: #f69c55;
+  :hover {
+    color: #f7aa6d;
+  }
+}
 .btn-so:hover{
   background-color: #f7aa6d;
 }
@@ -48,6 +60,9 @@
 }
 .git-ic {
   color: #4183c4;
+  :hover {
+    color: #5490ca;
+  }
 }
 .btn-git:hover{
   background-color: #5490ca;

@@ -13,12 +13,13 @@ body {
 
 }
 
-.full-bg-img,  .orange-gradient {
+.full-bg-img,  .blue-gradient {
     background: -webkit-linear-gradient(50deg, rgba(103, 236, 197, 0.7), rgba(91, 14, 214, 0.7));
     background: linear-gradient(40deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7)); }
+
     .orange-gradient {
-        background: -webkit-linear-gradient(50deg, rgba(103, 236, 197, 0.7), rgba(91, 14, 214, 0.7));
-        background: linear-gradient(40deg, rgba(29, 236, 197, 0.7), rgba(91, 14, 214, 0.7)); }
+      background: -webkit-linear-gradient(50deg, #FFD86F, #FC6262);
+      background: linear-gradient(40deg, #FFD86F, #FC6262); }
 
 .vew,.about-title{
   font-family: Roboto;
@@ -249,18 +250,18 @@ img.rounded-circle {
         color: #212529;
 }
 .carousel-example-2 .carousel-indicators {
-  position: absolute;
+    position: absolute;
     right: 0;
-    bottom: 10px;
+    bottom: 20px;
     left: 0;
     z-index: 15;
     margin-bottom: -2em;
     justify-content: center;
     display: flex;
-padding-left: 0;
-margin-right: 15%;
-margin-left: 15%;
-list-style: none;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
     -webkit-box-pack: center;
 }
 
@@ -275,4 +276,9 @@ list-style: none;
     max-width: 20px;
     background-color: #4285F4;
     margin-bottom: -60px;
+  }
+  .carousel-example-2 .carousel-item {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: auto;
   }

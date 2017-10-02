@@ -12,15 +12,15 @@ use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $skills = Skill::orderBy('skill', 'asc')->get();
-        $users = User::where('id', 1)->get();
+        $users = User::where('id', 1)->first();
         $projects = Project::oldest()->get();
         return view('index', compact('projects', 'skills', 'users'));
     }
@@ -57,41 +57,38 @@ class UserController extends Controller
 
 
         if ($token) {
-
-          $client = new Client();
-          $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            $client = new Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => array(
               'secret'   => '6Lf2Ni8UAAAAACvoF4YUM8njINH3JVoGJbE0cOqB',
               'response' => $token
             )
           ]);
-          $results = json_decode($response->getBody()->getContents());
+            $results = json_decode($response->getBody()->getContents());
 
-          if ($results->success) {
-            // dd($results);
-            // dd($results);
+            if ($results->success) {
+                // dd($results);
+                // dd($results);
 
-            $message = new Message;
+                $message = new Message;
 
-            Message::create(request(['name', 'email', 'contactNumber', 'subject', 'message']));
+                Message::create(request(['name', 'email', 'contactNumber', 'subject', 'message']));
 
-            Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
-              return redirect('/#your-message');
-          } else {
-            // $results->error_code
-            Session::flash('error', 'You are probably a robot!');
-            return redirect('/#your-message');
-          }
+                Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
+                return redirect('/#your-message');
+            } else {
+                // $results->error_code
+                Session::flash('error', 'You are probably a robot!');
+                return redirect('/#your-message');
+            }
 
-          // Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
+            // Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
           // return redirect('/#your-message');
 
         // } else {
         //   Session::flash('failed', 'Your message has been not submitted.');
         //   return redirect('/#your-message');
         }
-
-
     }
 
     /**
@@ -102,13 +99,13 @@ class UserController extends Controller
      */
     public function show($title)
     {
-      //fetch from the database based on title
-      $project = Project::where('title', '=', $title)->first();
-      $skills = Skill::all();
+        //fetch from the database based on title
+        $project = Project::where('title', '=', $title)->first();
+        $skills = Skill::all();
 
-      //return the view and pass in the post obh=ject
-      return view('admin.projects-show', compact('project'));
-      //   return $slug;
+        //return the view and pass in the post obh=ject
+        return view('admin.projects-show', compact('project'));
+        //   return $slug;
       //   return view('admin.projects-s how', compact('project'));
     }
 
