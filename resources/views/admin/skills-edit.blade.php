@@ -60,4 +60,5 @@
       $('[data-toggle="tooltip"]').tooltip()
    });
 </script>
+@include('partials._notifications')
 @endsection

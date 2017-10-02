@@ -108,4 +108,5 @@
    }
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2UBbwyUs4smpWZSypne8zfqA7Y3zM0Y&libraries=places&callback=activatePlacesSearch"></script>
+@include('partials._notifications')
 @endsection

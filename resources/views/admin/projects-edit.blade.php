@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Projects')
+
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
@@ -99,9 +100,9 @@
 <script src="{{asset('js/select2.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
    $('form').parsley();
+
    $('.multiple-select').select2();
-   $('.multiple-select').select2().val({
-      !!$project - > skills() - > allRelatedIds()!!
-   }).trigger('change');
+
+   $('.multiple-select').select2().val({!!$project->skills()->allRelatedIds()!!}).trigger('change');
 </script>
 @endsection
