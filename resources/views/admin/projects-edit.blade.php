@@ -13,7 +13,7 @@
          'undo redo | styleselect | bold italic | fontsizeselect | fontselect | link', 'alignleft aligncenter alignright'
       ],
       fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-      font_formats: 'Arial=arial,helvetica,sans-serif;Times New Roman=timesnewroman;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n;Verdana=verdana, geneva, sans-serif;',
+      font_formats: 'Source Sans Pro=Source Sans Pro, Arial=arial,helvetica,sans-serif;Times New Roman=timesnewroman;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n;Verdana=verdana, geneva, sans-serif;',
       height: 300
    });
 </script>
@@ -21,7 +21,6 @@
 
 @section('content')
 
-@include('partials._nav-admin')
 <br>
 <div class="container mt-3">
    <div class="row">

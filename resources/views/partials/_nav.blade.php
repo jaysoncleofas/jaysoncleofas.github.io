@@ -1,3 +1,4 @@
+@if (Auth::guest())
 <!--Navbar-->
 <nav class="navbar navbar-user fixed-top navbar-toggleable-md scrolling-navbar navbar-dark">
    <div class="container">
@@ -50,3 +51,44 @@
    </div>
 </nav>
 <!--/.Navbar-->
+@else
+  <nav class="navbar navbar-user fixed-top navbar-toggleable-md scrolling-navbar navbar-dark" style="background-color:#0275d8">
+     <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapseEx12" aria-controls="collapseEx2" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseEx12">
+           <ul class="navbar-nav mr-auto smooth-scroll">
+              <li class="nav-item">
+                 <a href="/home" class="nav-link">Dashboard</a>
+              </li>
+           </ul>
+           <!--Navbar icons-->
+           <ul class="nav navbar-nav nav-flex-icons">
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-danger">{{ count(auth()->user()->unreadNotifications) }}</span> <i class="fa fa-comments"></i></a>
+               <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                   @foreach (Auth()->user()->unreadNotifications as $notification)
+                     <a href="#">{{ ($notification->type) }}</a>
+                   @endforeach
+               </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ ucfirst(Auth::user()->name) }}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                  <a href="{{ route('settings.index') }}" class="dropdown-item">Settings</a>
+                  <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                     Logout
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     {{ csrf_field() }}
+                  </form>
+                </div>
+              </li>
+           </ul>
+        </div>
+     </div>
+  </nav>
+  <!--/.Navbar-->
+  @endif

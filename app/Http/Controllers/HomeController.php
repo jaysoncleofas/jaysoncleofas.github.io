@@ -8,7 +8,6 @@ use App\Project;
 use App\Message;
 use Yajra\DataTables\Facades\Datatables;
 
-
 class HomeController extends Controller
 {
     /**
@@ -28,7 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $projects = Project::all();
         $skill = Skill::all();
         $message = Message::all();
@@ -45,5 +43,4 @@ class HomeController extends Controller
     //   ->toArray();
     //   return Datatables::of($messages)->make(true);
     // }
-
 }

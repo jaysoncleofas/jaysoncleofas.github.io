@@ -1,6 +1,12 @@
-@extends('layouts.app') @section('title', 'Home') @section('stylesheets')
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('stylesheets')
 <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.css"/> -->
-@endsection @section('content') @include('partials._nav-admin')
+@endsection
+
+@section('content')
 <br>
 <div class="container mt-5">
    <div class="row">

@@ -1,4 +1,5 @@
 <?php
+use App\Notifications\MessageReceived;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,7 @@
 */
 
 Route::get('/', 'UserController@index')->name('index');
+
 Route::get('/portfolio/{title}', 'UserController@show');
 
 Auth::routes();

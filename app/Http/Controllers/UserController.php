@@ -9,6 +9,9 @@ use App\Message;
 use Session;
 use App\User;
 use GuzzleHttp\Client;
+use App\Notifications\MessageReceived;
+use Auth;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -69,8 +72,12 @@ class UserController extends Controller
             if ($results->success) {
                 // dd($results);
                 // dd($results);
+                // Auth::loginUsingId(1);
 
                 $message = new Message;
+
+
+                // Auth::user()->notify(new MessageReceived);
 
                 Message::create(request(['name', 'email', 'contactNumber', 'subject', 'message']));
 
