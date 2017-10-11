@@ -5,7 +5,7 @@
       </div>
       <img src="{{ asset('images/' . $user->avatar) }}" alt="user profile photo" class="img-fluid z-depth-1 mb-2 wow slideInLeft mx-auto" style="height:150px;width:150px;border-radius:50%;">
       <form class="" action="{{ route('updateImage', $user->id) }}" enctype="multipart/form-data" method="post">
-         {{ csrf_field() }}
+         {{ csrf_field() }}{{ method_field('PUT') }}
          <div class="md-form {{ $errors->has('avatar') ? 'has-danger' : '' }}">
             <input type="file" name="avatar" value="" class="form-control" required>
             @if ($errors->has('avatar'))
