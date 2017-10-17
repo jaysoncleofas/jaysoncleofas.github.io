@@ -26,22 +26,22 @@
          <!--Navbar icons-->
          <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
-               <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="nav-link">
+               <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="nav-link icn">
                   <i class="fa fa-facebook"></i>
                </a>
             </li>
             <li class="nav-item">
-               <a href="https://www.linkedin.com/in/jayson-cleofas-546183121/" target="_blank" class="nav-link">
+               <a href="https://www.linkedin.com/in/jayson-cleofas-546183121/" target="_blank" class="nav-link icn">
                   <i class="fa fa-linkedin"></i>
                </a>
             </li>
             <li class="nav-item">
-               <a href="https://stackoverflow.com/users/7244389/jayson-cleofas?tab=profile" target="_blank" class="nav-link">
+               <a href="https://stackoverflow.com/users/7244389/jayson-cleofas?tab=profile" target="_blank" class="nav-link icn">
                   <i class="fa fa-stack-overflow"></i>
                </a>
             </li>
             <li class="nav-item">
-               <a href="https://github.com/jaysoncleofas" target="_blank" class="nav-link">
+               <a href="https://github.com/jaysoncleofas" target="_blank" class="nav-link icn">
                   <i class="fa fa-github"></i>
                </a>
             </li>
