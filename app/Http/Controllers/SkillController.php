@@ -47,14 +47,14 @@ class SkillController extends Controller
         $skill->skill = $request->skill;
 
         if ($request->hasFile('image')) {
-            \Cloudder::upload("$request->file('image')", :folder => 'skills');
-            // $c=\Cloudder::getResult();
+            \Cloudder::upload($request->file('image'));
+            $c=\Cloudder::getResult();
             //  $image = $request->file('image');
             //  $filename = time() . '.' . $image->getClientOriginalExtension();
             //  $location = public_path('images/' . $filename);
-            //  Image::make($image)->save($location);
+            Image::make($image)->save($location);
 
-            // $skill->image = $c;
+            $skill->image = $c['url'];
         }
         //   if($request->hasFile('image_file')){
         //     \Cloudder::upload($request->file('image_file'));
