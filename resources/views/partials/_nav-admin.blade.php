@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav float-right">
         <li class="nav-item dropdown btn-group">
           <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <img src="{{ asset('images/'. Auth::user()->avatar) }}" alt="" style="border-radius:50%;height:30px;width:30px;">
+             <img src="{{ asset(Auth::user()->avatar) }}" alt="" style="border-radius:50%;height:30px;width:30px;">
              {{ ucwords(Auth::user()->name) }}
              <span class="caret"></span>
           </a>
