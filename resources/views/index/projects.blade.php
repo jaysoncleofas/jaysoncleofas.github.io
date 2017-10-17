@@ -1,7 +1,7 @@
 <div class="container">
    <section id="projects" class="pt-5 pb-5">
-      <h2 class="h2-responsive section-heading text-center mb-2 wow bounceInDown">What i did?</h2>
-      <p class="text-center wow bounceInDown">Projects that I created and some projects I contribute with.</p>
+      <h2 class="h2-responsive section-heading text-center mb-2 wow fadeIn" data-wow-delay="0.2s">What i did?</h2>
+      <p class="text-center wow fadeIn" data-wow-delay="0.2s">Projects that I created and some projects I contribute with.</p>
       @foreach ($projects as $project)
       <hr class="mb-3 mt-2">
       <div class="row wow fadeIn" data-wow-delay="0.2s">

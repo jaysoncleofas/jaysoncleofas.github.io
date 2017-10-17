@@ -10,8 +10,8 @@
 <!--/.Mask-->
 <div class="container">
    <section id="your-message" class="pt-5 pb-3">
-      <h2 class="h2-responsive section-heading text-center pb-2 wow bounceInDown">LEAVE ME A MESSAGE</h2>
-      <p class="text-center mb-2 wow bounceInDown">Please fill out the quick form and I will be in touch with lightning speed.</p>
+      <h2 class="h2-responsive section-heading text-center pb-2 wow fadeIn" data-wow-delay="0.2s">LEAVE ME A MESSAGE</h2>
+      <p class="text-center mb-2wow fadeIn" data-wow-delay="0.2s">Please fill out the quick form and I will be in touch with lightning speed.</p>
       <div class="row">
          <div class="col-lg-6 mx-auto text-center">
             @if (Session::has('success'))
