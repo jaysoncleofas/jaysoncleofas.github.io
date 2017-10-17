@@ -40,19 +40,10 @@
 }
 .top-nav-collapse {
   background-color: #1c2331;
-  .icn {
-    padding-right: 6px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
     .navbar {
       background-color: #1c2331;
-
-      .nav-item .nav-link {
-        padding-left: 6px;
-        padding-right: 6px;
-
-      }
     }
 }
