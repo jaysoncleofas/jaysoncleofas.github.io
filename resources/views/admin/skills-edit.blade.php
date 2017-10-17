@@ -30,7 +30,7 @@
                   </div>
                   <p>Image:</p>
                   <div class="md-form {{ $errors->has('image') ? 'has-danger' : '' }}">
-                     <input type="file" name="image" value="" class="form-control">
+                     <input type="file" name="image" value="{{ $skill->image }}" class="form-control">
                      @if ($errors->has('image'))
                      <span class="text-danger">
                         <strong>{{ $errors->first('image') }}</strong>
