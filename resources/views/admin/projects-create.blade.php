@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
-
+@include('partials._nav-admin')
 <br>
 <div class="container mt-3">
    <div class="row">

@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-
+@include('partials._nav-admin')
 <div class="container mt-5">
    <div class="row">
       <div class="col-lg-12 mx-auto">

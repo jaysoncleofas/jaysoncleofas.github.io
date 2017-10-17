@@ -6,7 +6,6 @@
    </head>
    <body>
       <div id="app">
-        @include('partials._nav')
          @yield('content')
       </div>
       <!-- Scripts -->
