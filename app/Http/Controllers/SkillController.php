@@ -52,7 +52,7 @@ class SkillController extends Controller
             //  $image = $request->file('image');
             //  $filename = time() . '.' . $image->getClientOriginalExtension();
             //  $location = public_path('images/' . $filename);
-            Image::make($image)->save($location);
+            // Image::make($image)->save($location);
 
             $skill->image = $c['url'];
         }
