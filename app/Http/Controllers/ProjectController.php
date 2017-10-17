@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Project;
 use App\Skill;
@@ -51,33 +52,33 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
+        $project = new Project;
+        $project->user_id = auth()->id();
+        $project->title = $request->title;
+        $project->body = Purifier::clean($request->body);
 
-          $project = new Project;
-          $project->user_id = auth()->id();
-          $project->title = $request->title;
-          $project->body = Purifier::clean($request->body);
-
-          if ($request->hasFile('featured_image')) {
+        if ($request->hasFile('featured_image')) {
             $this->validate($request, [
                 'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
             ]);
 
-             $image = $request->file('featured_image');
-             $filename = time() . '.' . $image->getClientOriginalExtension();
-             $location = public_path('images/' . $filename);
-             Image::make($image)->resize(800, 400)->save($location);
+            \Cloudder::upload($request->file('featured_image'));
+            $c=\Cloudder::getResult();
+            //  $image = $request->file('featured_image');
+            //  $filename = time() . '.' . $image->getClientOriginalExtension();
+            //  $location = public_path('images/' . $filename);
+            //  Image::make($image)->resize(800, 400)->save($location);
 
-             $project->image = $filename;
-          }
+            $project->image = $c['url'];
+        }
 
-          $project->save();
+        $project->save();
 
-          $project->skills()->sync($request->skills, false);
+        $project->skills()->sync($request->skills, false);
 
         session()->flash('success', 'Your project was successfully added!');
 
         return redirect('/projects');
-
     }
 
     /**
@@ -99,8 +100,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-      $project = Project::find($id);
-       $skills = Skill::orderBy('skill')->get();
+        $project = Project::find($id);
+        $skills = Skill::orderBy('skill')->get();
         return view('admin.projects-edit', compact('project', 'skills'));
     }
 
@@ -117,11 +118,11 @@ class ProjectController extends Controller
         $project = Project::find($id);
 
         if ($request->input('title') != $project->title) {
-           $this->validate($request, [
+            $this->validate($request, [
              'title' => 'required|unique:projects',
           ]);
-       }else {
-           $this->validate($request, [
+        } else {
+            $this->validate($request, [
               'body' => 'required'
            ]);
         }
@@ -130,25 +131,26 @@ class ProjectController extends Controller
         $project->body = Purifier::clean($request->input('body'));
 
         if ($request->hasFile('featured_image')) {
-
-          $this->validate($request, [
+            $this->validate($request, [
               'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
           ]);
 
-          $image = $request->file('featured_image');
-          $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
-          Image::make($image)->resize(800, 400)->save($location);
+            \Cloudder::upload($request->file('featured_image'));
+            $c=\Cloudder::getResult();
+            // $image = $request->file('featured_image');
+            // $filename = time() . '.' . $image->getClientOriginalExtension();
+            // $location = public_path('images/' . $filename);
+            // Image::make($image)->resize(800, 400)->save($location);
 
-          $project->image = $filename;
+            $project->image = $c['url'];
         }
 
         $project->save();
 
         if (isset($request->skills)) {
-           $project->skills()->sync($request->skills);
+            $project->skills()->sync($request->skills);
         } else {
-           $project->skills()->sync(array());
+            $project->skills()->sync(array());
         }
 
         session()->flash('success', 'This project was successfully saved!');

@@ -5,7 +5,7 @@
       </h2>
       <div class="row">
          <div class="col-sm-5 pb-2 wow slideInLeft">
-            <img src="{{ asset('images/' . $users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
+            <img src="{{ asset($users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
             <div class="text-center mt-3">
                <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="fb-ic mr-2">
                   <i class="fa fa-facebook fa-2x"></i>

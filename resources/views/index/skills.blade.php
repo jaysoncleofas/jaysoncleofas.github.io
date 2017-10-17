@@ -34,7 +34,7 @@
                                  </div>
                                  <div class="card-body">
                                     <div class="view overlay hm-white-light mb-2">
-                                       <img class="img-fluid mx-auto" src="{{ asset('images/'. $data->image ) }}" alt="{{ $data->title }}" style="">
+                                       <img class="img-fluid mx-auto" src="{{ asset($data->image ) }}" alt="{{ $data->title }}" style="">
                                        <a href="https://www.google.com.ph/search?q={{ $data->skill }}" target="_blank">
                                           <div class="mask"></div>
                                        </a>

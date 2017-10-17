@@ -7,7 +7,7 @@
       <div class="row wow fadeIn" data-wow-delay="0.2s">
          <div class="col-sm-7">
             <div class="view overlay hm-teal-slight z-depth-1 mb-2">
-               <img src="{{ asset('images/' . $project->image) }}" class="img-fluid" alt="">
+               <img src="{{ asset($project->image) }}" class="img-fluid" alt="">
                <a href="{{ url('portfolio/'.$project->title) }}">
                   <div class="mask waves-effect waves-light flex-center">
                      <p class=""></p>
