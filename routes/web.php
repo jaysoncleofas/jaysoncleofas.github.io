@@ -28,3 +28,6 @@ Route::post('settings/{id}', 'AdminController@updateImage')->name('updateImage')
 Route::resource('change-password', 'ChangePasswordController');
 Route::resource('projects', 'ProjectController');
 Route::resource('messages', 'MessageController');
+
+Route::get('get-file', 'CloudderController@getFile');
+Route::post('upload-file', ['as'=>'upload-file','uses'=>'CloudderController@uploadFile']);
