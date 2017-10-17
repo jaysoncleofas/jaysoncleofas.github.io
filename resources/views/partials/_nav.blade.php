@@ -24,7 +24,7 @@
             </li>
          </ul>
          <!--Navbar icons-->
-         <ul class="nav navbar-nav nav-flex-icons">
+         <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
                <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="nav-link">
                   <i class="fa fa-facebook"></i>
