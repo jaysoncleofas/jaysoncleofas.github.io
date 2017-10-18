@@ -81,7 +81,7 @@ class UserController extends Controller
 
                 Message::create(request(['name', 'email', 'contactNumber', 'subject', 'message']));
 
-                Session::flash('success', 'Your message has been submitted. I will reply to your email as soon as possible.');
+                Session::flash('success', 'Your message has been submitted. I will reply to your contact details as soon as possible.');
                 return redirect('/#your-message');
             } else {
                 // $results->error_code

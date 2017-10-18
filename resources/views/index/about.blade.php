@@ -45,7 +45,7 @@
             </div>
             <div class="col-9 col-md-8 col-lg-9 float-right">
                <h4 class="feature-title mb-2">Modern design</h4>
-               <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends</p>
+               <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends.</p>
             </div>
          </div>
          <div class="col-md-4 mb-r wow fadeIn" data-wow-delay="0.2s">
@@ -54,7 +54,7 @@
             </div>
             <div class="col-9 col-md-8 col-lg-9 float-right">
                <h4 class="feature-title mb-2">Responsive websites</h4>
-               <p class="grey-text">It doesn't matter on which device your projects will be displayed. It looks great on each screen</p>
+               <p class="grey-text">It doesn't matter on which device your projects will be displayed. It looks great on each screen.</p>
             </div>
          </div>
       </div>
