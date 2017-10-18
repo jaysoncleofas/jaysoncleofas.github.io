@@ -2,7 +2,7 @@
    <div class="container">
       <section id="skills" class="pt-5 pb-3">
          <h2 class="h2-responsive section-heading text-center pb-2 wow fadeIn" data-wow-delay="0.2s">What i do?</h2>
-         <p class="text-center pb-1 wow fadeIn" data-wow-delay="0.2s">Powerful and useful technologies.</p>
+         <p class="text-center pb-1 wow fadeIn" data-wow-delay="0.2s">Powerful and useful technologies that I use.</p>
          <div class="row">
             <div id="carousel-example-2" class="carousel carousel-example-2 slide carousel-fade" data-ride="carousel">
                <!--/.Controls-->
