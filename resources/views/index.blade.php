@@ -69,6 +69,7 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('js/parsley.min.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
    new WOW().init();
 
