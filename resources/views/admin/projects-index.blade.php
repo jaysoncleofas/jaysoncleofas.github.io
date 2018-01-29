@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-
+@include('partials._nav-admin')
 <div class="container mt-5">
    <div class="row">
       <div class="col-lg-12 mx-auto">
@@ -46,7 +46,7 @@
                                  {{ strlen($project->title) > 20 ? "..." : "" }}
                               </a>
                            </td>
-                           <td><img src="{{ asset('images/' . $project->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+                           <td><img src="{{ asset('images/'.$project->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
                            <td>{{ substr(strip_tags($project->body), 0, 50) }}{{ strlen($project->body) > 50 ? "..." : "" }}</td>
                            <td>{{ $project->created_at->toFormattedDateString()}}</td>
                            <td>

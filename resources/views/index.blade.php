@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('stylesheets')
+@extends('layouts.app')
+@section('stylesheets')
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 <style>

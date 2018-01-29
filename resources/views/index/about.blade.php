@@ -1,11 +1,11 @@
 <div class="container">
    <section id="about" class="pt-5 pb-5">
-      <h2 class="h2-responsive section-heading text-center mb-2 wow bounceInDown">
+      <h2 class="h2-responsive section-heading text-center mb-2 wow fadeIn" data-wow-delay="0.2s">
          Who am i?
       </h2>
       <div class="row">
-         <div class="col-sm-5 pb-2 wow slideInLeft">
-            <img src="{{ asset('images/' . $users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
+         <div class="col-sm-5 pb-2 wow fadeIn" data-wow-delay="0.2s">
+            <img src="{{ asset('images/'.$users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
             <div class="text-center mt-3">
                <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="fb-ic mr-2">
                   <i class="fa fa-facebook fa-2x"></i>
@@ -21,7 +21,7 @@
                </a>
             </div>
          </div>
-         <div class="col-sm-7 mt-2 wow slideInRight">
+         <div class="col-sm-7 mt-2 smooth-scroll wow fadeIn" data-wow-delay="0.2s">
             <p class="text-justify">{!! $users->about !!}</p>
          </div>
       </div>
@@ -30,7 +30,7 @@
 <div class="container-fluid" style="background:#34495e;">
    <div class="container white-text">
       <div class="row pt-3">
-         <div class="col-md-4 mb-r wow slideInRight">
+         <div class="col-md-4 mb-r wow fadeIn" data-wow-delay="0.2s">
             <div class="col-2 col-md-3 float-left">
                <i class="fa fa-code blue-text fa-3x"></i>
             </div>
@@ -39,7 +39,7 @@
                <p class="grey-text">Brings the design and functionality of an app to life. Using a mix of frameworks, build everything that makes a website function.</p>
             </div>
          </div>
-         <div class="col-md-4 mb-r wow slideInRight">
+         <div class="col-md-4 mb-r wow fadeIn" data-wow-delay="0.2s">
             <div class="col-2 col-md-3 float-left">
                <i class="fa fa-paint-brush pink-text fa-3x"></i>
             </div>
@@ -48,7 +48,7 @@
                <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends</p>
             </div>
          </div>
-         <div class="col-md-4 mb-r wow slideInRight">
+         <div class="col-md-4 mb-r wow fadeIn" data-wow-delay="0.2s">
             <div class="col-2 col-md-3 float-left">
                <i class="fa fa-laptop purple-text fa-3x"></i>
             </div>

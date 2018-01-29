@@ -181,6 +181,7 @@ return [
         Mews\Purifier\PurifierServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'Purifier' =>  Mews\Purifier\Facades\Purifier::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
 
     ],
 

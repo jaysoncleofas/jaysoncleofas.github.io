@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-
+@include('partials._nav-admin')
 <br>
 <div class="container mt-5">
    <div class="row">
@@ -63,7 +63,7 @@
                         <tr>
                            <td scope="row">{{ $number++ }}</td>
                            <td class="teal-text">{{ $skills->skill }}</td>
-                           <td><img src="{{ asset('images/' . $skills->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+                           <td><img src="{{ asset('images/'.$skills->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
                            <td>{{ $skills->created_at->toFormattedDateString()}}</td>
                            <td>
                               <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">

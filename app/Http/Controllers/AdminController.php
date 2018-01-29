@@ -10,7 +10,6 @@ use Purifier;
 use Image;
 use Illuminate\Http\File;
 
-
 class AdminController extends Controller
 {
     /**
@@ -40,7 +39,6 @@ class AdminController extends Controller
      */
     public function create()
     {
-
     }
 
 
@@ -75,9 +73,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $user = User::find(Auth::user()->id);
+        $user = User::find(Auth::user()->id);
 
-      $this->validate($request, [
+        $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'phoneNumber' => 'max:255',
@@ -96,7 +94,6 @@ class AdminController extends Controller
 
         session()->flash('success', 'You have successfully updated your profile!');
         return redirect()->route('settings.index');
-
     }
 
     /**
@@ -123,24 +120,23 @@ class AdminController extends Controller
     {
         $user = Auth::user();
 
-      if ($request->hasFile('avatar')) {
-
-        $this->validate($request, [
+        if ($request->hasFile('avatar')) {
+            $this->validate($request, [
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1000',
         ]);
 
-        $avatar = $request->file('avatar');
-        $filename = time() . '.' . $avatar->getClientOriginalExtension();
-        $location = public_path('images/' . $filename);
-        Image::make($avatar)->resize(300, 300)->save($location);
+            // $avatar = $request->file('avatar');
+            \Cloudder::upload($request->file('avatar'));
+            $c=\Cloudder::getResult();
+            // $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            // $location = public_path('images/' . $filename);
+            // Image::make($avatar)->resize(300, 300)->save($location);
 
-        $user->avatar = $filename;
-        $user->save();
+            $user->avatar = $c['url'];
+            $user->save();
 
-        session()->flash('success', 'Profile photo changed!');
-        return redirect()->back();
-
-      }
-
+            session()->flash('success', 'Profile photo changed!');
+            return redirect()->back();
+        }
     }
 }

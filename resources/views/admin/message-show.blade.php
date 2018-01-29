@@ -3,7 +3,7 @@
 @section('title', 'Projects')
 
 @section('content')
-
+@include('partials._nav-admin')
 <div class="container mt-5">
    <div class="row">
       <div class="col-lg-8 mx-auto">
