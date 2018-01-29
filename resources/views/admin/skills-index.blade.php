@@ -63,7 +63,11 @@
                         <tr>
                            <td scope="row">{{ $number++ }}</td>
                            <td class="teal-text">{{ $skills->skill }}</td>
+<<<<<<< HEAD
                            <td><img src="{{ asset('images/'.$skills->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+=======
+                           <td><img src="{{ asset($skills->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
                            <td>{{ $skills->created_at->toFormattedDateString()}}</td>
                            <td>
                               <form class="" action="{{ route('skills.destroy', $skills->id) }}" method="post">

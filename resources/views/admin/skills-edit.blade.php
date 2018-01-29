@@ -29,6 +29,7 @@
                      @endif
                   </div>
                   <p>Image:</p>
+                  <img src="{{ asset($skill->image) }}" alt="" class="img-thumbnail img-fluid" style="">
                   <div class="md-form {{ $errors->has('image') ? 'has-danger' : '' }}">
                      <input type="file" name="image" value="" class="form-control">
                      @if ($errors->has('image'))

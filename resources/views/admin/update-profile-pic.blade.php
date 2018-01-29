@@ -3,7 +3,11 @@
       <div class="form-header indigo">
          Update Profile Picture
       </div>
+<<<<<<< HEAD
       <img src="{{ asset('images/'.$user->avatar) }}" alt="user profile photo" class="img-fluid z-depth-1 mb-2 wow slideInLeft mx-auto" style="height:150px;width:150px;border-radius:50%;">
+=======
+      <img src="{{ asset($user->avatar) }}" alt="user profile photo" class="img-fluid z-depth-1 mb-2 wow slideInLeft mx-auto" style="height:150px;width:150px;border-radius:50%;">
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
       <form class="" action="{{ route('updateImage', $user->id) }}" enctype="multipart/form-data" method="post">
          {{ csrf_field() }}
          <div class="md-form {{ $errors->has('avatar') ? 'has-danger' : '' }}">

@@ -2,7 +2,11 @@
    <div class="container">
       <section id="skills" class="pt-5 pb-3">
          <h2 class="h2-responsive section-heading text-center pb-2 wow fadeIn" data-wow-delay="0.2s">What i do?</h2>
+<<<<<<< HEAD
          <p class="text-center pb-1 wow fadeIn" data-wow-delay="0.2s">Powerful and useful technologies.</p>
+=======
+         <p class="text-center pb-1 wow fadeIn" data-wow-delay="0.2s">Powerful and useful technologies that I use.</p>
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
          <div class="row">
             <div id="carousel-example-2" class="carousel carousel-example-2 slide carousel-fade" data-ride="carousel">
                <!--/.Controls-->
@@ -34,7 +38,11 @@
                                  </div>
                                  <div class="card-body">
                                     <div class="view overlay hm-white-light mb-2">
+<<<<<<< HEAD
                                        <img class="img-fluid mx-auto" src="{{ asset('images/'.$data->image ) }}" alt="{{ $data->title }}" style="">
+=======
+                                       <img class="img-fluid mx-auto" src="{{ asset($data->image ) }}" alt="{{ $data->title }}" style="">
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
                                        <a href="https://www.google.com.ph/search?q={{ $data->skill }}" target="_blank">
                                           <div class="mask"></div>
                                        </a>

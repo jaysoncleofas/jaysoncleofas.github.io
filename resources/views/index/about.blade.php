@@ -5,7 +5,11 @@
       </h2>
       <div class="row">
          <div class="col-sm-5 pb-2 wow fadeIn" data-wow-delay="0.2s">
+<<<<<<< HEAD
             <img src="{{ asset('images/'.$users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
+=======
+            <img src="{{ asset($users->avatar) }}" alt="user profile photo" class="img-fluid mx-auto z-depth-2" style="height:300px;width:300px;border-radius:50%;">
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
             <div class="text-center mt-3">
                <a href="https://www.facebook.com/8H8qLTxmHBUQpjDB" target="_blank" class="fb-ic mr-2">
                   <i class="fa fa-facebook fa-2x"></i>
@@ -21,7 +25,11 @@
                </a>
             </div>
          </div>
+<<<<<<< HEAD
          <div class="col-sm-7 mt-2 smooth-scroll wow fadeIn" data-wow-delay="0.2s">
+=======
+         <div class="col-sm-7 mt-2 wow fadeIn" data-wow-delay="0.2s">
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
             <p class="text-justify">{!! $users->about !!}</p>
          </div>
       </div>
@@ -45,7 +53,7 @@
             </div>
             <div class="col-9 col-md-8 col-lg-9 float-right">
                <h4 class="feature-title mb-2">Modern design</h4>
-               <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends</p>
+               <p class="grey-text">Design changes quickly and it is of most importance to keep up with the latest trends.</p>
             </div>
          </div>
          <div class="col-md-4 mb-r wow fadeIn" data-wow-delay="0.2s">
@@ -54,7 +62,7 @@
             </div>
             <div class="col-9 col-md-8 col-lg-9 float-right">
                <h4 class="feature-title mb-2">Responsive websites</h4>
-               <p class="grey-text">It doesn't matter on which device your projects will be displayed. It looks great on each screen</p>
+               <p class="grey-text">It doesn't matter on which device your projects will be displayed. It looks great on each screen.</p>
             </div>
          </div>
       </div>

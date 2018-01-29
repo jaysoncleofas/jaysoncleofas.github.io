@@ -46,7 +46,11 @@
                                  {{ strlen($project->title) > 20 ? "..." : "" }}
                               </a>
                            </td>
+<<<<<<< HEAD
                            <td><img src="{{ asset('images/'.$project->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+=======
+                           <td><img src="{{ asset($project->image) }}" alt="" class="img-thumbnail" style="width:100px;"></td>
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
                            <td>{{ substr(strip_tags($project->body), 0, 50) }}{{ strlen($project->body) > 50 ? "..." : "" }}</td>
                            <td>{{ $project->created_at->toFormattedDateString()}}</td>
                            <td>

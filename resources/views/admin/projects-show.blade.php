@@ -9,7 +9,11 @@
    <section id="projects" class="pt-5 pb-3">
       <div class="row wow fadeIn mt-3" data-wow-delay="1s">
          <div class="col-lg-8 mb-2 mx-auto">
+<<<<<<< HEAD
             <img src="{{ asset('images/'. $project->image) }}" class="img-fluid z-depth-2" style="height:auto;">
+=======
+            <img src="{{ asset($project->image) }}" class="img-fluid z-depth-2" style="height:auto;">
+>>>>>>> 13cc8714f682675f7549a3ee7b00a6e8498a38a9
             <h2 class="h2-responsive mt-3 mb-2 wow bounceInDown">{{ $project->title }}</h2>
             <p class="text-justify">{!! $project->body !!}</p>
             <div class="mt-4 ">

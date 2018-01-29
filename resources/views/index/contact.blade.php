@@ -14,15 +14,7 @@
       <p class="text-center mb-2wow fadeIn" data-wow-delay="0.2s">Please fill out the quick form and I will be in touch with lightning speed.</p>
       <div class="row">
          <div class="col-lg-6 mx-auto text-center">
-            @if (Session::has('success'))
-            <div class="alert alert-success">
-               {{ Session::get('success') }}
-            </div>
-            @endif @if (Session::has('error'))
-            <div class="alert alert-danger">
-               {{ Session::get('error') }}
-            </div>
-            @endif
+           @include('partials._notifications')
             <form action="{{ route('message.store') }}" method="post" data-parsley-validate id="form">
                {{ csrf_field() }}
                <div class="md-form {{ $errors->has('name') ? 'has-danger' : '' }} wow fadeInUp" data-wow-delay="0.2s">
